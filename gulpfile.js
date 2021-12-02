@@ -16,5 +16,5 @@ gulp.task("dist", function() {
 				base: "./"
 			}
 		)
-		.pipe(gulp.dest("dist/lightning-three-column-unit"));
+		.pipe(gulp.dest("dist/lightning-g3-three-column-unit"));
 });

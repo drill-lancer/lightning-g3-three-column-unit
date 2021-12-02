@@ -8,7 +8,7 @@
 /**
  * Conditions of Lightning Three Column Unit
  */
-class Lightning_Three_Column_Unit_Condition {
+class Lightning_G3_Three_Column_Unit_Condition {
 
 	/**
 	 * Lightning Layout Target Array
@@ -483,4 +483,4 @@ class Lightning_Three_Column_Unit_Condition {
 	}
 }
 
-new Lightning_Three_Column_Unit_Condition();
+new Lightning_G3_Three_Column_Unit_Condition();

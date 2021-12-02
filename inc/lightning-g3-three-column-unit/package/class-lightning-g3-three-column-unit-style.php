@@ -8,7 +8,7 @@
 /**
  * Lightning Three Column Unit
  */
-class Lightning_Three_Column_Unit_Style {
+class Lightning_G3_Three_Column_Unit_Style {
 
 	/**
 	 * Constructor
@@ -21,19 +21,19 @@ class Lightning_Three_Column_Unit_Style {
 	 * Render Style
 	 */
 	public static function render_style() {
-		$options = get_option( 'lightning_three_column_unit_options' );
-		$default = Lightning_Three_Column_Unit_Admin::default_option();
+		$options = get_option( 'lightning_g3_three_column_unit_options' );
+		$default = Lightning_G3_Three_Column_Unit_Admin::default_option();
 		$options = wp_parse_args( $options, $default );
 
-		$one_column_layout   = Lightning_Three_Column_Unit_Condition::lightning_is_layout_one_column();
-		$two_column_layout   = Lightning_Three_Column_Unit_Condition::lightning_is_layout_two_column();
-		$three_column_layout = Lightning_Three_Column_Unit_Condition::lightning_is_layout_three_column();
+		$one_column_layout   = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_one_column();
+		$two_column_layout   = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_two_column();
+		$three_column_layout = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column();
 
-		$three_column_content_left_layout   = Lightning_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_left();
-		$three_column_content_center_layout = Lightning_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_center();
-		$three_column_content_right_layout  = Lightning_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_right();
+		$three_column_content_left_layout   = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_left();
+		$three_column_content_center_layout = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_center();
+		$three_column_content_right_layout  = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_right();
 
-		$three_column_set = Lightning_Three_Column_Unit_Condition::lightning_is_set_three_column();
+		$three_column_set = Lightning_G3_Three_Column_Unit_Condition::lightning_is_set_three_column();
 
 		$lightning_theme_option = get_option( 'lightning_theme_options' );
 
@@ -878,4 +878,4 @@ class Lightning_Three_Column_Unit_Style {
 	}
 
 }
-new Lightning_Three_Column_Unit_Style();
+new Lightning_G3_Three_Column_Unit_Style();

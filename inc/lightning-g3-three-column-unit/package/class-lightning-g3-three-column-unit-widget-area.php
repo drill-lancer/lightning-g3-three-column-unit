@@ -8,7 +8,7 @@
 /**
  * Lightning Three Column Unit Widget Area
  */
-class Lightning_Three_Column_Unit_Widget_Area {
+class Lightning_G3_Three_Column_Unit_Widget_Area {
 
 	/**
 	 * Constructor
@@ -24,9 +24,9 @@ class Lightning_Three_Column_Unit_Widget_Area {
 	public static function register_widget_area() {
 		register_sidebar(
 			array(
-				'name'          => __( 'Additional Sidebar', 'lightning-three-column-unit' ),
+				'name'          => __( 'Additional Sidebar', 'lightning-g3-three-column-unit' ),
 				'id'            => 'lightning-addtional-sidebar',
-				'description'   => __( 'Display only Three Column Layout', 'lightning-three-column-unit' ),
+				'description'   => __( 'Display only Three Column Layout', 'lightning-g3-three-column-unit' ),
 				'before_widget' => '<aside class="widget %2$s" id="%1$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h1 class="widget-title subSection-title">',
@@ -39,7 +39,7 @@ class Lightning_Three_Column_Unit_Widget_Area {
 	 * Add Sidebar
 	 */
 	public static function add_sidebar() {
-		if ( Lightning_Three_Column_Unit_Condition::lightning_is_layout_three_column() ) {
+		if ( Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column() ) {
 			?>
 			<div class="<?php lightning_the_class_name( 'addSection' ); ?>">
 				<?php
@@ -54,4 +54,4 @@ class Lightning_Three_Column_Unit_Widget_Area {
 
 }
 
-new Lightning_Three_Column_Unit_Widget_Area();
+new Lightning_G3_Three_Column_Unit_Widget_Area();

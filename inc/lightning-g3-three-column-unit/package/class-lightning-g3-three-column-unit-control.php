@@ -8,7 +8,7 @@
 /**
  * Lightning Three Column Unit
  */
-class Lightning_Three_Column_Unit_Control {
+class Lightning_G3_Three_Column_Unit_Control {
 
 	/**
 	 * Constructor
@@ -25,13 +25,13 @@ class Lightning_Three_Column_Unit_Control {
 	 */
 	public static function columns_setting_choice( $choice ) {
 		$choice = array(
-			'default'                  => __( 'Use common settings', 'lightning-three-column-unit' ),
-			'col-one-no-subsection'    => __( '1 column ( No sub section )', 'lightning-three-column-unit' ),
-			'col-one'                  => __( '1 column', 'lightning-three-column-unit' ),
-			'col-two'                  => __( '2 column', 'lightning-three-column-unit' ),
-			'col-three-content-left'   => __( '3 Column Content Left', 'lightning-three-column-unit' ),
-			'col-three-content-center' => __( '3 Column Content Center', 'lightning-three-column-unit' ),
-			'col-three-content-right'  => __( '3 Column Content Right', 'lightning-three-column-unit' ),
+			'default'                  => __( 'Use common settings', 'lightning-g3-three-column-unit' ),
+			'col-one-no-subsection'    => __( '1 column ( No sub section )', 'lightning-g3-three-column-unit' ),
+			'col-one'                  => __( '1 column', 'lightning-g3-three-column-unit' ),
+			'col-two'                  => __( '2 column', 'lightning-g3-three-column-unit' ),
+			'col-three-content-left'   => __( '3 Column Content Left', 'lightning-g3-three-column-unit' ),
+			'col-three-content-center' => __( '3 Column Content Center', 'lightning-g3-three-column-unit' ),
+			'col-three-content-right'  => __( '3 Column Content Right', 'lightning-g3-three-column-unit' ),
 		);
 		return $choice;
 	}
@@ -48,15 +48,15 @@ class Lightning_Three_Column_Unit_Control {
 		$options['sidebar_fix'] = 'no-fix';
 		update_option( 'lightning_theme_options', $options );
 
-		$one_column_layout   = Lightning_Three_Column_Unit_Condition::lightning_is_layout_one_column();
-		$two_column_layout   = Lightning_Three_Column_Unit_Condition::lightning_is_layout_two_column();
-		$three_column_layout = Lightning_Three_Column_Unit_Condition::lightning_is_layout_three_column();
+		$one_column_layout   = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_one_column();
+		$two_column_layout   = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_two_column();
+		$three_column_layout = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column();
 
-		$three_column_content_left_layout   = Lightning_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_left();
-		$three_column_content_center_layout = Lightning_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_center();
-		$three_column_content_right_layout  = Lightning_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_right();
+		$three_column_content_left_layout   = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_left();
+		$three_column_content_center_layout = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_center();
+		$three_column_content_right_layout  = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_right();
 
-		$three_column_set = Lightning_Three_Column_Unit_Condition::lightning_is_set_three_column();
+		$three_column_set = Lightning_G3_Three_Column_Unit_Condition::lightning_is_set_three_column();
 
 		if ( $one_column_layout ) {
 			$class_names['mainSection'] = 'col mainSection mainSection-col-one';
@@ -131,4 +131,4 @@ class Lightning_Three_Column_Unit_Control {
 
 }
 
-new Lightning_Three_Column_Unit_Control();
+new Lightning_G3_Three_Column_Unit_Control();

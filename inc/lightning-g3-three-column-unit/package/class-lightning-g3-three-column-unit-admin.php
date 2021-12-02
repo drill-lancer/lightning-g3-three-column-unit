@@ -8,7 +8,7 @@
 /**
  * Conditions of Lightning Three Column Unit Admin
  */
-class Lightning_Three_Column_Unit_Admin {
+class Lightning_G3_Three_Column_Unit_Admin {
 
 	/**
 	 * Constructor
@@ -45,9 +45,9 @@ class Lightning_Three_Column_Unit_Admin {
 
 		// Add Section.
 		$wp_customize->add_section(
-			'lightning_three_column_unit_setting',
+			'lightning_g3_three_column_unit_setting',
 			array(
-				'title'    => __( 'Lightning Three Column Unit', 'lightning-three-column-unit' ),
+				'title'    => __( 'Lightning Three Column Unit', 'lightning-g3-three-column-unit' ),
 				'priority' => 999,
 			)
 		);
@@ -60,7 +60,7 @@ class Lightning_Three_Column_Unit_Admin {
 
 		// Main Culumn Width.
 		$wp_customize->add_setting(
-			'lightning_three_column_unit_options[main_width]',
+			'lightning_g3_three_column_unit_options[main_width]',
 			array(
 				'default'           => $default_option['main_width'],
 				'type'              => 'option',
@@ -69,18 +69,18 @@ class Lightning_Three_Column_Unit_Admin {
 			)
 		);
 		$wp_customize->add_control(
-			'lightning_three_column_unit_options[main_width]',
+			'lightning_g3_three_column_unit_options[main_width]',
 			array(
-				'label'    => __( 'Main Column Width Value ( px )', 'lightning-three-column-unit' ),
-				'section'  => 'lightning_three_column_unit_setting',
-				'settings' => 'lightning_three_column_unit_options[main_width]',
+				'label'    => __( 'Main Column Width Value ( px )', 'lightning-g3-three-column-unit' ),
+				'section'  => 'lightning_g3_three_column_unit_setting',
+				'settings' => 'lightning_g3_three_column_unit_options[main_width]',
 				'type'     => 'text',
 			)
 		);
 
 		// Side Culumn Width.
 		$wp_customize->add_setting(
-			'lightning_three_column_unit_options[side_width]',
+			'lightning_g3_three_column_unit_options[side_width]',
 			array(
 				'default'           => $default_option['side_width'],
 				'type'              => 'option',
@@ -89,18 +89,18 @@ class Lightning_Three_Column_Unit_Admin {
 			)
 		);
 		$wp_customize->add_control(
-			'lightning_three_column_unit_options[side_width]',
+			'lightning_g3_three_column_unit_options[side_width]',
 			array(
-				'label'    => __( 'Side Column Width ( px )', 'lightning-three-column-unit' ),
-				'section'  => 'lightning_three_column_unit_setting',
-				'settings' => 'lightning_three_column_unit_options[side_width]',
+				'label'    => __( 'Side Column Width ( px )', 'lightning-g3-three-column-unit' ),
+				'section'  => 'lightning_g3_three_column_unit_setting',
+				'settings' => 'lightning_g3_three_column_unit_options[side_width]',
 				'type'     => 'text',
 			)
 		);
 
 		// Margin of Between Columns.
 		$wp_customize->add_setting(
-			'lightning_three_column_unit_options[column_margin]',
+			'lightning_g3_three_column_unit_options[column_margin]',
 			array(
 				'default'           => $default_option['column_margin'],
 				'type'              => 'option',
@@ -109,18 +109,18 @@ class Lightning_Three_Column_Unit_Admin {
 			)
 		);
 		$wp_customize->add_control(
-			'lightning_three_column_unit_options[column_margin]',
+			'lightning_g3_three_column_unit_options[column_margin]',
 			array(
-				'label'    => __( 'Margin of Between Columns ( px )', 'lightning-three-column-unit' ),
-				'section'  => 'lightning_three_column_unit_setting',
-				'settings' => 'lightning_three_column_unit_options[column_margin]',
+				'label'    => __( 'Margin of Between Columns ( px )', 'lightning-g3-three-column-unit' ),
+				'section'  => 'lightning_g3_three_column_unit_setting',
+				'settings' => 'lightning_g3_three_column_unit_options[column_margin]',
 				'type'     => 'text',
 			)
 		);
 
 		// Minumum Margin Sum for Out of Container.
 		$wp_customize->add_setting(
-			'lightning_three_column_unit_options[outer_container_margin]',
+			'lightning_g3_three_column_unit_options[outer_container_margin]',
 			array(
 				'default'           => $default_option['outer_container_margin'],
 				'type'              => 'option',
@@ -129,18 +129,18 @@ class Lightning_Three_Column_Unit_Admin {
 			)
 		);
 		$wp_customize->add_control(
-			'lightning_three_column_unit_options[outer_container_margin]',
+			'lightning_g3_three_column_unit_options[outer_container_margin]',
 			array(
-				'label'    => __( 'Minumum Margin Sum for Out of Container ( px )', 'lightning-three-column-unit' ),
-				'section'  => 'lightning_three_column_unit_setting',
-				'settings' => 'lightning_three_column_unit_options[outer_container_margin]',
+				'label'    => __( 'Minumum Margin Sum for Out of Container ( px )', 'lightning-g3-three-column-unit' ),
+				'section'  => 'lightning_g3_three_column_unit_setting',
+				'settings' => 'lightning_g3_three_column_unit_options[outer_container_margin]',
 				'type'     => 'text',
 			)
 		);
 
 		// When Three Column Layout is Choosed and Narrowing Window Size, Make Two Column Layout.
 		$wp_customize->add_setting(
-			'lightning_three_column_unit_options[three-to-one-via-two]',
+			'lightning_g3_three_column_unit_options[three-to-one-via-two]',
 			array(
 				'default'           => $default_option['three-to-one-via-two'],
 				'type'              => 'option',
@@ -149,22 +149,22 @@ class Lightning_Three_Column_Unit_Admin {
 			)
 		);
 		$wp_customize->add_control(
-			'lightning_three_column_unit_options[three-to-one-via-two]',
+			'lightning_g3_three_column_unit_options[three-to-one-via-two]',
 			array(
-				'label'    => __( 'When Three Column Layout is Choosed and Narrowing Window Size, Make Two Column Layout', 'lightning-three-column-unit' ),
-				'section'  => 'lightning_three_column_unit_setting',
-				'settings' => 'lightning_three_column_unit_options[three-to-one-via-two]',
+				'label'    => __( 'When Three Column Layout is Choosed and Narrowing Window Size, Make Two Column Layout', 'lightning-g3-three-column-unit' ),
+				'section'  => 'lightning_g3_three_column_unit_setting',
+				'settings' => 'lightning_g3_three_column_unit_options[three-to-one-via-two]',
 				'type'     => 'select',
 				'choices'  => array(
-					'disable' => __( 'Disable', 'lightning-three-column-unit' ),
-					'enable'  => __( 'Enable', 'lightning-three-column-unit' ),
+					'disable' => __( 'Disable', 'lightning-g3-three-column-unit' ),
+					'enable'  => __( 'Enable', 'lightning-g3-three-column-unit' ),
 				),
 			)
 		);
 
 		// Main Sidebar Control.
 		$wp_customize->add_setting(
-			'lightning_three_column_unit_options[main_sidebar_control]',
+			'lightning_g3_three_column_unit_options[main_sidebar_control]',
 			array(
 				'default'           => $default_option['main_sidebar_control'],
 				'type'              => 'option',
@@ -173,22 +173,22 @@ class Lightning_Three_Column_Unit_Admin {
 			)
 		);
 		$wp_customize->add_control(
-			'lightning_three_column_unit_options[main_sidebar_control]',
+			'lightning_g3_three_column_unit_options[main_sidebar_control]',
 			array(
-				'label'    => __( 'Main Sidebar Control', 'lightning-three-column-unit' ),
-				'section'  => 'lightning_three_column_unit_setting',
-				'settings' => 'lightning_three_column_unit_options[main_sidebar_control]',
+				'label'    => __( 'Main Sidebar Control', 'lightning-g3-three-column-unit' ),
+				'section'  => 'lightning_g3_three_column_unit_setting',
+				'settings' => 'lightning_g3_three_column_unit_options[main_sidebar_control]',
 				'type'     => 'select',
 				'choices'  => array(
-					'wrap-down' => __( 'Wrap Down', 'lightning-three-column-unit' ),
-					'hide'      => __( 'Hide', 'lightning-three-column-unit' ),
+					'wrap-down' => __( 'Wrap Down', 'lightning-g3-three-column-unit' ),
+					'hide'      => __( 'Hide', 'lightning-g3-three-column-unit' ),
 				),
 			)
 		);
 
 		// Sub Sidebar Control.
 		$wp_customize->add_setting(
-			'lightning_three_column_unit_options[sub_sidebar_control]',
+			'lightning_g3_three_column_unit_options[sub_sidebar_control]',
 			array(
 				'default'           => $default_option['sub_sidebar_control'],
 				'type'              => 'option',
@@ -197,22 +197,22 @@ class Lightning_Three_Column_Unit_Admin {
 			)
 		);
 		$wp_customize->add_control(
-			'lightning_three_column_unit_options[sub_sidebar_control]',
+			'lightning_g3_three_column_unit_options[sub_sidebar_control]',
 			array(
-				'label'    => __( 'Sub Sidebar Control', 'lightning-three-column-unit' ),
-				'section'  => 'lightning_three_column_unit_setting',
-				'settings' => 'lightning_three_column_unit_options[sub_sidebar_control]',
+				'label'    => __( 'Sub Sidebar Control', 'lightning-g3-three-column-unit' ),
+				'section'  => 'lightning_g3_three_column_unit_setting',
+				'settings' => 'lightning_g3_three_column_unit_options[sub_sidebar_control]',
 				'type'     => 'select',
 				'choices'  => array(
-					'wrap-down' => __( 'Wrap Down', 'lightning-three-column-unit' ),
-					'hide'      => __( 'Hide', 'lightning-three-column-unit' ),
+					'wrap-down' => __( 'Wrap Down', 'lightning-g3-three-column-unit' ),
+					'hide'      => __( 'Hide', 'lightning-g3-three-column-unit' ),
 				),
 			)
 		);
 
 		// Narrow Window Discription.
 		$wp_customize->add_setting(
-			'lightning_three_column_unit_options[narrow_window_description]',
+			'lightning_g3_three_column_unit_options[narrow_window_description]',
 			array(
 				'default'           => $default_option['narrow_window_description'],
 				'type'              => 'option',
@@ -221,15 +221,15 @@ class Lightning_Three_Column_Unit_Admin {
 			)
 		);
 		$wp_customize->add_control(
-			'lightning_three_column_unit_options[narrow_window_description]',
+			'lightning_g3_three_column_unit_options[narrow_window_description]',
 			array(
-				'label'    => __( 'Header Top Description Control on Narrow Window', 'lightning-three-column-unit' ),
-				'section'  => 'lightning_three_column_unit_setting',
-				'settings' => 'lightning_three_column_unit_options[narrow_window_description]',
+				'label'    => __( 'Header Top Description Control on Narrow Window', 'lightning-g3-three-column-unit' ),
+				'section'  => 'lightning_g3_three_column_unit_setting',
+				'settings' => 'lightning_g3_three_column_unit_options[narrow_window_description]',
 				'type'     => 'select',
 				'choices'  => array(
-					'display' => __( 'Display', 'lightning-three-column-unit' ),
-					'hide'    => __( 'Hide', 'lightning-three-column-unit' ),
+					'display' => __( 'Display', 'lightning-g3-three-column-unit' ),
+					'hide'    => __( 'Hide', 'lightning-g3-three-column-unit' ),
 				),
 			)
 		);
@@ -238,4 +238,4 @@ class Lightning_Three_Column_Unit_Admin {
 
 }
 
-new Lightning_Three_Column_Unit_Admin();
+new Lightning_G3_Three_Column_Unit_Admin();
