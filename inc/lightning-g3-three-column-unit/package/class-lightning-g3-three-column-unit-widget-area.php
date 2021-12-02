@@ -15,7 +15,9 @@ class Lightning_G3_Three_Column_Unit_Widget_Area {
 	 */
 	public function __construct() {
 		add_action( 'init', array( __CLASS__, 'register_widget_area' ) );
-		add_action( 'lightning_additional_section', array( __CLASS__, 'add_sidebar' ) );
+		add_action( 'lightning_sub_section_prepend', array( __CLASS__, 'add_sub_section_prepend' ) );
+		add_action( 'lightning_sub_section_append', array( __CLASS__, 'add_sub_section_append' ) );
+		add_action( 'lightning_sub_section_after', array( __CLASS__, 'add_sidebar' ) );
 	}
 
 	/**
@@ -29,10 +31,28 @@ class Lightning_G3_Three_Column_Unit_Widget_Area {
 				'description'   => __( 'Display only Three Column Layout', 'lightning-g3-three-column-unit' ),
 				'before_widget' => '<aside class="widget %2$s" id="%1$s">',
 				'after_widget'  => '</aside>',
-				'before_title'  => '<h1 class="widget-title subSection-title">',
-				'after_title'   => '</h1>',
+				'before_title'  => '<h4 class="widget-title sub-section-title">',
+				'after_title'   => '</h4>',
 			)
 		);
+	}
+
+	/**
+	 * Sub Section Prepend
+	 */
+	public static function add_sub_section_prepend() {
+		?>
+		<div class="<?php lightning_the_class_name( 'sub-section' ); ?>-inner">
+		<?php
+	}
+
+	/**
+	 * Sub Section Append
+	 */
+	public static function add_sub_section_append() {
+		?>
+		</div>
+		<?php
 	}
 
 	/**
@@ -41,12 +61,14 @@ class Lightning_G3_Three_Column_Unit_Widget_Area {
 	public static function add_sidebar() {
 		if ( Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column() ) {
 			?>
-			<div class="<?php lightning_the_class_name( 'addSection' ); ?>">
-				<?php
-				if ( is_active_sidebar( 'lightning-addtional-sidebar' ) ) {
-					dynamic_sidebar( 'lightning-addtional-sidebar' );
-				}
-				?>
+			<div class="<?php lightning_the_class_name( 'sub-section-2' ); ?>">
+				<div class="<?php lightning_the_class_name( 'sub-section-2' ); ?>-inner">
+					<?php
+					if ( is_active_sidebar( 'lightning-addtional-sidebar' ) ) {
+						dynamic_sidebar( 'lightning-addtional-sidebar' );
+					}
+					?>
+				</div>
 			</div>
 			<?php
 		}

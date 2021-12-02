@@ -94,9 +94,9 @@ class Lightning_G3_Three_Column_Unit_Style {
 			margin-left: 0;
 			margin-right: 0;
 		}
-		.sideSection,
-		.mainSection,
-		.addSection {
+		.sub-section,
+		.main-section,
+		.add-section {
 			flex-basis: auto;
 			float:none;
 			margin-left: 0;
@@ -107,30 +107,30 @@ class Lightning_G3_Three_Column_Unit_Style {
 		if ( function_exists( 'lightning_is_base_active' ) && false !== lightning_is_base_active() ) {
 			$dynamic_css .= '
 			@media (min-width: 1200px) {
-				.addSection-base-on {
+				.add-section-base-on {
 					padding: 2.4rem 2rem;
 				}
 			}
 
 			@media (min-width: 992px) {
-				.addSection-base-on {
+				.add-section-base-on {
 					padding: 2.4rem 1.7rem;
 				}
 			}
 
 			@media (min-width: 768px) {
-				.addSection-base-on {
+				.add-section-base-on {
 					padding: 2rem;
 				}
 			}
 
 			@media (min-width: 576px) {
-				.addSection-base-on {
+				.add-section-base-on {
 					padding: 1.7rem;
 				}
 			}
 
-			.addSection-base-on {
+			.add-section-base-on {
 				background-color: #fff;
 				padding: 1.4rem;
 			}
@@ -223,8 +223,8 @@ class Lightning_G3_Three_Column_Unit_Style {
 						max-width: calc( ' . $container_3col_width . 'px - ' . $outer_container_margin . 'px );
 					}
 				}
-				.mainSection,
-				.sideSection {
+				.main-section,
+				.sub-section {
 					width: 100%;
 					max-width: 100%;
 				}
@@ -258,8 +258,8 @@ class Lightning_G3_Three_Column_Unit_Style {
 						width: calc( 100% - ' . $outer_container_margin . 'px );
 						max-width: calc( 100% - ' . $outer_container_margin . 'px );
 					}
-					.mainSection,
-					.sideSection {
+					.main-section,
+					.sub-section {
 						width: 100%;
 						max-width: 100%;
 					}
@@ -272,12 +272,12 @@ class Lightning_G3_Three_Column_Unit_Style {
 						width: calc( 100% - ' . $outer_container_margin . 'px );
 						max-width: calc( 100% - ' . $outer_container_margin . 'px );
 					}
-					.mainSection,
-					.sideSection {
+					.main-section,
+					.sub-section {
 						width: 100%;
 						max-width: 100%;
 					}
-					.sideSection {
+					.sub-section {
 						display: none;
 					}
 				}
@@ -293,13 +293,13 @@ class Lightning_G3_Three_Column_Unit_Style {
 							width: ' . $container_2col_width . 'px;
 							max-width: ' . $container_2col_width . 'px;
 						}
-						.mainSection {
+						.main-section {
 							width: ' . $main_width . 'px;
 							max-width: ' . $main_width . 'px;
 							margin-left: ' . $column_margin . 'px;
 							order: 1;
 						}
-						.sideSection {
+						.sub-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							order: 0;
@@ -310,13 +310,13 @@ class Lightning_G3_Three_Column_Unit_Style {
 							width: ' . $container_3col_width . 'px;
 							max-width: ' . $container_3col_width . 'px;
 						}
-						.mainSection {
+						.main-section {
 							width: ' . $main_width_wide . 'px;
 							max-width: ' . $main_width_wide . 'px;
 							margin-left: ' . $column_margin . 'px;
 							order: 1;
 						}
-						.sideSection {
+						.sub-section {
 							width: ' . $side_width_wide . 'px;
 							max-width: ' . $side_width_wide . 'px;
 							order: 0;
@@ -330,13 +330,13 @@ class Lightning_G3_Three_Column_Unit_Style {
 							width: ' . $container_2col_width . 'px;
 							max-width: ' . $container_2col_width . 'px;
 						}
-						.mainSection {
+						.main-section {
 							width: ' . $main_width . 'px;
 							max-width: ' . $main_width . 'px;
 							margin-left: ' . $column_margin . 'px;
 							order: 1;
 						}
-						.sideSection {
+						.sub-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							order: 0;
@@ -352,13 +352,13 @@ class Lightning_G3_Three_Column_Unit_Style {
 							width: ' . $container_2col_width . 'px;
 							max-width: ' . $container_2col_width . 'px;
 						}
-						.mainSection {
+						.main-section {
 							width: ' . $main_width . 'px;
 							max-width: ' . $main_width . 'px;
 							margin-right: ' . $column_margin . 'px;
 							order: 0;
 						}
-						.sideSection {
+						.sub-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							order: 1;
@@ -369,13 +369,13 @@ class Lightning_G3_Three_Column_Unit_Style {
 							width: ' . $container_3col_width . 'px;
 							max-width: ' . $container_3col_width . 'px;
 						}
-						.mainSection {
+						.main-section {
 							width: ' . $main_width_wide . 'px;
 							max-width: ' . $main_width_wide . 'px;
 							margin-right: ' . $column_margin . 'px;
 							order: 0;
 						}
-						.sideSection {
+						.sub-section {
 							width: ' . $side_width_wide . 'px;
 							max-width: ' . $side_width_wide . 'px;
 							order: 1;
@@ -389,13 +389,13 @@ class Lightning_G3_Three_Column_Unit_Style {
 							width: ' . $container_2col_width . 'px;
 							max-width: ' . $container_2col_width . 'px;
 						}
-						.mainSection {
+						.main-section {
 							width: ' . $main_width . 'px;
 							max-width: ' . $main_width . 'px;
 							margin-right: ' . $column_margin . 'px;
 							order: 0;
 						}
-						.sideSection {
+						.sub-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							order: 1;
@@ -416,9 +416,9 @@ class Lightning_G3_Three_Column_Unit_Style {
 						width: calc( 100% - ' . $outer_container_margin . 'px );
 						max-width: calc( 100% - ' . $outer_container_margin . 'px );
 					}
-					.mainSection,
-					.sideSection,
-					.addSection {
+					.main-section,
+					.sub-section,
+					.add-section {
 						width: 100%;
 						max-width: 100%;
 					}
@@ -431,13 +431,13 @@ class Lightning_G3_Three_Column_Unit_Style {
 						width: calc( 100% - ' . $outer_container_margin . 'px );
 						max-width: calc( 100% - ' . $outer_container_margin . 'px );
 					}
-					.mainSection,
-					.sideSection,
-					.addSection {
+					.main-section,
+					.sub-section,
+					.add-section {
 						width: 100%;
 						max-width: 100%;
 					}
-					.addSection {
+					.add-section {
 						display: none;
 					}
 				}
@@ -449,13 +449,13 @@ class Lightning_G3_Three_Column_Unit_Style {
 						width: calc( 100% - ' . $outer_container_margin . 'px );
 						max-width: calc( 100% - ' . $outer_container_margin . 'px );
 					}
-					.mainSection,
-					.sideSection,
-					.addSection {
+					.main-section,
+					.sub-section,
+					.add-section {
 						width: 100%;
 						max-width: 100%;
 					}
-					.sideSection {
+					.sub-section {
 						display: none;
 					}
 				}
@@ -467,14 +467,14 @@ class Lightning_G3_Three_Column_Unit_Style {
 						width: calc( 100% - ' . $outer_container_margin . 'px );
 						max-width: calc( 100% - ' . $outer_container_margin . 'px );
 					}
-					.mainSection,
-					.sideSection,
-					.addSection {
+					.main-section,
+					.sub-section,
+					.add-section {
 						width: 100%;
 						max-width: 100%;
 					}
-					.sideSection,
-					.addSection{
+					.sub-section,
+					.add-section{
 						display: none;
 					}
 				}
@@ -492,18 +492,18 @@ class Lightning_G3_Three_Column_Unit_Style {
 								width: ' . $container_2col_width . 'px;
 								max-width: ' . $container_2col_width . 'px;
 							}
-							.mainSection {
+							.main-section {
 								width: ' . $main_width . 'px;
 								max-width: ' . $main_width . 'px;
 								margin-right: ' . $column_margin . 'px;
 								order: 0;
 							}
-							.sideSection {
+							.sub-section {
 								width: ' . $side_width . 'px;
 								max-width: ' . $side_width . 'px;
 								order: 1;
 							}
-							.addSection {
+							.add-section {
 								width: 100%;
 								max-width: 100%;
 								margin-top: 2em;
@@ -518,18 +518,18 @@ class Lightning_G3_Three_Column_Unit_Style {
 								width: ' . $container_2col_width . 'px;
 								max-width: ' . $container_2col_width . 'px;
 							}
-							.mainSection {
+							.main-section {
 								width: ' . $main_width . 'px;
 								max-width: ' . $main_width . 'px;
 								margin-right: ' . $column_margin . 'px;
 								order: 0;
 							}
-							.sideSection {
+							.sub-section {
 								width: ' . $side_width . 'px;
 								max-width: ' . $side_width . 'px;
 								order: 1;
 							}
-							.addSection {
+							.add-section {
 								display: none;
 							}
 						}
@@ -546,18 +546,18 @@ class Lightning_G3_Three_Column_Unit_Style {
 									width: ' . $container_2col_width . 'px;
 									max-width: ' . $container_2col_width . 'px;
 								}
-								.mainSection {
+								.main-section {
 									width: ' . $main_width . 'px;
 									max-width: ' . $main_width . 'px;
 									margin-left: ' . $column_margin . 'px;
 									order: 1;
 								}
-								.sideSection {
+								.sub-section {
 									width: ' . $side_width . 'px;
 									max-width: ' . $side_width . 'px;
 									order: 0;
 								}
-								.addSection {
+								.add-section {
 									width: 100%;
 									max-width: 100%;
 									margin-top: 2em;
@@ -572,18 +572,18 @@ class Lightning_G3_Three_Column_Unit_Style {
 									width: ' . $container_2col_width . 'px;
 									max-width: ' . $container_2col_width . 'px;
 								}
-								.mainSection {
+								.main-section {
 									width: ' . $main_width . 'px;
 									max-width: ' . $main_width . 'px;
 									margin-left: ' . $column_margin . 'px;
 									order: 1;
 								}
-								.sideSection {
+								.sub-section {
 									width: ' . $side_width . 'px;
 									max-width: ' . $side_width . 'px;
 									order: 0;
 								}
-								.addSection {
+								.add-section {
 									display: none;
 								}
 							}
@@ -598,18 +598,18 @@ class Lightning_G3_Three_Column_Unit_Style {
 									width: ' . $container_2col_width . 'px;
 									max-width: ' . $container_2col_width . 'px;
 								}
-								.mainSection {
+								.main-section {
 									width: ' . $main_width . 'px;
 									max-width: ' . $main_width . 'px;
 									margin-right: ' . $column_margin . 'px;
 									order: 0;
 								}
-								.sideSection {
+								.sub-section {
 									width: ' . $side_width . 'px;
 									max-width: ' . $side_width . 'px;
 									order: 1;
 								}
-								.addSection {
+								.add-section {
 									width: 100%;
 									max-width: 100%;
 									margin-top: 2em;
@@ -624,18 +624,18 @@ class Lightning_G3_Three_Column_Unit_Style {
 									width: ' . $container_2col_width . 'px;
 									max-width: ' . $container_2col_width . 'px;
 								}
-								.mainSection {
+								.main-section {
 									width: ' . $main_width . 'px;
 									max-width: ' . $main_width . 'px;
 									margin-right: ' . $column_margin . 'px;
 									order: 0;
 								}
-								.sideSection {
+								.sub-section {
 									width: ' . $side_width . 'px;
 									max-width: ' . $side_width . 'px;
 									order: 1;
 								}
-								.addSection {
+								.add-section {
 									display: none;
 								}
 							}
@@ -651,18 +651,18 @@ class Lightning_G3_Three_Column_Unit_Style {
 								width: ' . $container_2col_width . 'px;
 								max-width: ' . $container_2col_width . 'px;
 							}
-							.mainSection {
+							.main-section {
 								width: ' . $main_width . 'px;
 								max-width: ' . $main_width . 'px;
 								margin-left: ' . $column_margin . 'px;
 								order: 1;
 							}
-							.sideSection {
+							.sub-section {
 								width: ' . $side_width . 'px;
 								max-width: ' . $side_width . 'px;
 								order: 0;
 							}
-							.addSection {
+							.add-section {
 								width: 100%;
 								max-width: 100%;
 								margin-top: 2em;
@@ -677,18 +677,18 @@ class Lightning_G3_Three_Column_Unit_Style {
 								width: ' . $container_2col_width . 'px;
 								max-width: ' . $container_2col_width . 'px;
 							}
-							.mainSection {
+							.main-section {
 								width: ' . $main_width . 'px;
 								max-width: ' . $main_width . 'px;
 								margin-left: ' . $column_margin . 'px;
 								order: 1;
 							}
-							.sideSection {
+							.sub-section {
 								width: ' . $side_width . 'px;
 								max-width: ' . $side_width . 'px;
 								order: 0;
 							}
-							.addSection {
+							.add-section {
 								display: none;
 							}
 						}
@@ -706,19 +706,19 @@ class Lightning_G3_Three_Column_Unit_Style {
 							width: ' . $container_3col_width . 'px;
 							max-width: ' . $container_3col_width . 'px;
 						}
-						.mainSection {
+						.main-section {
 							width: ' . $main_width . 'px;
 							max-width: ' . $main_width . 'px;
 							margin-right: ' . $column_margin . 'px;
 							order: 0;
 						}
-						.sideSection {
+						.sub-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							margin-right: ' . $column_margin . 'px;
 							order: 1;
 						}
-						.addSection {
+						.add-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							order: 2;
@@ -733,18 +733,18 @@ class Lightning_G3_Three_Column_Unit_Style {
 							width: ' . $container_3col_width . 'px;
 							max-width: ' . $container_3col_width . 'px;
 						}
-						.mainSection {
+						.main-section {
 							width: ' . $main_width . 'px;
 							max-width: ' . $main_width . 'px;
 							margin-right: ' . $column_margin . 'px;
 							order: 0;
 						}
-						.sideSection {
+						.sub-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							order: 2;
 						}
-						.addSection {
+						.add-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							margin-right: ' . $column_margin . 'px;
@@ -762,19 +762,19 @@ class Lightning_G3_Three_Column_Unit_Style {
 							width: ' . $container_3col_width . 'px;
 							max-width: ' . $container_3col_width . 'px;
 						}
-						.mainSection {
+						.main-section {
 							width: ' . $main_width . 'px;
 							max-width: ' . $main_width . 'px;
 							margin-left: ' . $column_margin . 'px;
 							margin-right: ' . $column_margin . 'px;
 							order: 1;
 						}
-						.sideSection {
+						.sub-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							order: 0;
 						}
-						.addSection {
+						.add-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							order: 2;
@@ -789,19 +789,19 @@ class Lightning_G3_Three_Column_Unit_Style {
 							width: ' . $container_3col_width . 'px;
 							max-width: ' . $container_3col_width . 'px;
 						}
-						.mainSection {
+						.main-section {
 							width: ' . $main_width . 'px;
 							max-width: ' . $main_width . 'px;
 							margin-left: ' . $column_margin . 'px;
 							margin-right: ' . $column_margin . 'px;
 							order: 1;
 						}
-						.sideSection {
+						.sub-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							order: 2;
 						}
-						.addSection {
+						.add-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							order: 0;
@@ -818,18 +818,18 @@ class Lightning_G3_Three_Column_Unit_Style {
 							width: ' . $container_3col_width . 'px;
 							max-width: ' . $container_3col_width . 'px;
 						}
-						.mainSection {
+						.main-section {
 							width: ' . $main_width . 'px;
 							max-width: ' . $main_width . 'px;
 							margin-left: ' . $column_margin . 'px;
 							order: 2;
 						}
-						.sideSection {
+						.sub-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							order: 0;
 						}
-						.addSection {
+						.add-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							margin-left: ' . $column_margin . 'px;
@@ -845,19 +845,19 @@ class Lightning_G3_Three_Column_Unit_Style {
 							width: ' . $container_3col_width . 'px;
 							max-width: ' . $container_3col_width . 'px;
 						}
-						.mainSection {
+						.main-section {
 							width: ' . $main_width . 'px;
 							max-width: ' . $main_width . 'px;
 							margin-left: ' . $column_margin . 'px;
 							order: 2;
 						}
-						.sideSection {
+						.sub-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							margin-left: ' . $column_margin . 'px;
 							order: 1;
 						}
-						.addSection {
+						.add-section {
 							width: ' . $side_width . 'px;
 							max-width: ' . $side_width . 'px;
 							order: 0;
@@ -873,6 +873,7 @@ class Lightning_G3_Three_Column_Unit_Style {
 		$dynamic_css = preg_replace( '/[\n\r\t]/', '', $dynamic_css );
 		// multi space convert to single space.
 		$dynamic_css = preg_replace( '/\s(?=\s)/', '', $dynamic_css );
+		$dynamic_css = '/* Lightning G3 Three Colomn Unit */' . $dynamic_css;
 		wp_add_inline_style( 'lightning-design-style', $dynamic_css );
 
 	}

@@ -15,6 +15,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
+
 if ( 'lightning' === get_template() || 'lightning-pro' === get_template() ) {
 	$data = get_file_data( __FILE__, array( 'version' => 'Version' ) );
 	define( 'LTCU_VERSION', $data['version'] );

@@ -29,6 +29,45 @@ class Lightning_G3_Three_Column_Unit_Condition {
 	}
 
 	/**
+	 * Lightning Layout Single
+	 *
+	 *  @since Lightning 14.3.3
+	 *  @return false / col-two / col-one / col-one-no-subsection
+	 */
+	public static function lightning_layout_by_single() {
+		$layout = false;
+		if ( is_singular() ) {
+			global $post;
+			if ( is_page() || is_front_page() ) {
+				$template           = get_post_meta( $post->ID, '_wp_page_template', true );
+				$template_onecolumn = array(
+					'page-onecolumn.php',
+					'page-lp.php',
+				);
+				if ( in_array( $template, $template_onecolumn, true ) ) {
+					$layout = 'col-one';
+				}
+			}
+			if ( isset( $post->_lightning_design_setting['layout'] ) ) {
+				if ( 'col-one-no-subsection' === $post->_lightning_design_setting['layout'] ) {
+					$layout = 'col-one-no-subsection';
+				} elseif ( 'col-one' === $post->_lightning_design_setting['layout'] ) {
+					$layout = 'col-one';
+				} elseif ( 'col-two' === $post->_lightning_design_setting['layout'] ) {
+					$layout = 'col-two';
+				} elseif ( 'col-three-content-left' === $post->_lightning_design_setting['layout'] ) {
+					$layout = 'col-three-content-left';
+				} elseif ( 'col-three-content-center' === $post->_lightning_design_setting['layout'] ) {
+					$layout = 'col-three-content-center';
+				} elseif ( 'col-three-content-right' === $post->_lightning_design_setting['layout'] ) {
+					$layout = 'col-three-content-right';
+				}
+			}
+		}
+		return $layout;
+	}
+
+	/**
 	 * Lightning Is Layout One Column
 	 *
 	 * @since Lightning 9.0.0
@@ -38,6 +77,14 @@ class Lightning_G3_Three_Column_Unit_Condition {
 		$onecolumn = false;
 		$options   = get_option( 'lightning_theme_options' );
 		global $wp_query;
+
+		$additional_post_types = get_post_types(
+			array(
+				'public'   => true,
+				'_builtin' => false,
+			),
+			'names'
+		);
 
 		$array = self::lightning_layout_target_array();
 
@@ -57,14 +104,8 @@ class Lightning_G3_Three_Column_Unit_Condition {
 				if ( 'col-one' === $options['layout']['front-page'] || 'col-one-no-subsection' === $options['layout']['front-page'] ) {
 					$onecolumn = true;
 				}
-			} else {
-				$page_on_front_id = get_option( 'page_on_front' );
-				if ( $page_on_front_id ) {
-					$template = get_post_meta( $page_on_front_id, '_wp_page_template', true );
-					if ( 'page-onecolumn.php' === $template || 'page-lp.php' === $template ) {
-						$onecolumn = true;
-					}
-				}
+			} elseif ( 'col-one' === lightning_layout_by_single() || 'col-one-no-subsection' === lightning_layout_by_single() ) {
+				$onecolumn = true;
 			}
 		} elseif ( is_front_page() && is_home() ) {
 			// show_on_front 'posts' case.
@@ -83,21 +124,8 @@ class Lightning_G3_Three_Column_Unit_Condition {
 					$onecolumn = true;
 				}
 			}
-		}
-
-		$additional_post_types = get_post_types(
-			array(
-				'public'   => true,
-				'_builtin' => false,
-			),
-			'names'
-		);
-
-		/**
-		 * アーカイブページの場合
-		 */
-		if ( is_archive() && ! is_search() && ! is_author() ) {
-			$current_post_type_info = lightning_get_post_type();
+		} elseif ( is_archive() && ! is_search() && ! is_author() ) {
+			$current_post_type_info = VK_Helpers::get_post_type_info();
 			$archive_post_types     = array( 'post' ) + $additional_post_types;
 			foreach ( $archive_post_types as $archive_post_type ) {
 				if ( isset( $options['layout'][ 'archive-' . $archive_post_type ] ) && $current_post_type_info['slug'] === $archive_post_type ) {
@@ -106,39 +134,10 @@ class Lightning_G3_Three_Column_Unit_Condition {
 					}
 				}
 			}
+		} elseif ( 'col-one' === lightning_layout_by_single() || 'col-one-no-subsection' === lightning_layout_by_single() ) {
+			$onecolumn = true;
 		}
-
-		if ( is_singular() ) {
-			global $post;
-			$single_post_types = array( 'post', 'page' ) + $additional_post_types;
-			foreach ( $single_post_types as $single_post_type ) {
-				if ( isset( $options['layout'][ 'single-' . $single_post_type ] ) && get_post_type() === $single_post_type ) {
-					if ( 'col-one' === $options['layout'][ 'single-' . $single_post_type ] || 'col-one-no-subsection' === $options['layout'][ 'single-' . $single_post_type ] ) {
-						$onecolumn = true;
-					}
-				}
-			}
-			if ( is_page() ) {
-				$template           = get_post_meta( $post->ID, '_wp_page_template', true );
-				$template_onecolumn = array(
-					'page-onecolumn.php',
-					'page-lp.php',
-				);
-				if ( in_array( $template, $template_onecolumn, true ) ) {
-					$onecolumn = true;
-				}
-			}
-			if ( isset( $post->_lightning_design_setting['layout'] ) ) {
-				if ( 'col-two' === $post->_lightning_design_setting['layout'] ) {
-					$onecolumn = false;
-				} elseif ( 'col-one-no-subsection' === $post->_lightning_design_setting['layout'] ) {
-					$onecolumn = true;
-				} elseif ( 'col-one' === $post->_lightning_design_setting['layout'] ) {
-					$onecolumn = true;
-				}
-			}
-		}
-		return apply_filters( 'lightning_is_layout_one_column', $onecolumn );
+		return apply_filters( 'lightning_g3_is_layout_one_column', $onecolumn );
 	}
 
 	/**
@@ -160,6 +159,14 @@ class Lightning_G3_Three_Column_Unit_Condition {
 		$options           = get_option( 'lightning_theme_options' );
 		global $wp_query;
 
+		$additional_post_types = get_post_types(
+			array(
+				'public'   => true,
+				'_builtin' => false,
+			),
+			'names'
+		);
+
 		$array = self::lightning_layout_target_array();
 
 		foreach ( $array as $key => $value ) {
@@ -177,6 +184,8 @@ class Lightning_G3_Three_Column_Unit_Condition {
 				if ( 'col-three-content-left' === $options['layout']['front-page'] ) {
 					$three_column_left = true;
 				}
+			} elseif ( 'col-three-content-left' === lightning_layout_by_single() ) {
+				$three_column_left = true;
 			}
 		} elseif ( is_front_page() && is_home() ) {
 			if ( isset( $options['layout']['front-page'] ) ) {
@@ -194,20 +203,7 @@ class Lightning_G3_Three_Column_Unit_Condition {
 					$three_column_left = true;
 				}
 			}
-		}
-
-		$additional_post_types = get_post_types(
-			array(
-				'public'   => true,
-				'_builtin' => false,
-			),
-			'names'
-		);
-
-		/**
-		 * アーカイブページの場合
-		 */
-		if ( is_archive() && ! is_search() && ! is_author() ) {
+		} elseif ( is_archive() && ! is_search() && ! is_author() ) {
 			$current_post_type_info = lightning_get_post_type();
 			$archive_post_types     = array( 'post' ) + $additional_post_types;
 			foreach ( $archive_post_types as $archive_post_type ) {
@@ -217,34 +213,27 @@ class Lightning_G3_Three_Column_Unit_Condition {
 					}
 				}
 			}
+		} elseif ( 'col-three-content-left' === lightning_layout_by_single() ) {
+			$three_column_left = true;
 		}
-
-		if ( is_singular() ) {
-			global $post;
-			$single_post_types = array( 'post', 'page' ) + $additional_post_types;
-			foreach ( $single_post_types as $single_post_type ) {
-				if ( isset( $options['layout'][ 'single-' . $single_post_type ] ) && get_post_type() === $single_post_type ) {
-					if ( 'col-three-content-left' === $options['layout'][ 'single-' . $single_post_type ] ) {
-						$three_column_left = true;
-					}
-				}
-			}
-			if ( isset( $post->_lightning_design_setting['layout'] ) ) {
-				if ( 'col-three-content-left' === $post->_lightning_design_setting['layout'] ) {
-					$three_column_left = true;
-				}
-			}
-		}
-		return apply_filters( 'lightning_is_layout_three_column_content_left', $three_column_left );
+		return apply_filters( 'lightning_g3_is_layout_three_column_content_left', $three_column_left );
 	}
 
 	/**
-	 * Lightning is 3 Column Content Center
+	 * Lightning is 3 Column Content center
 	 */
 	public static function lightning_is_layout_three_column_content_center() {
 		$three_column_center = false;
-		$options             = get_option( 'lightning_theme_options' );
+		$options           = get_option( 'lightning_theme_options' );
 		global $wp_query;
+
+		$additional_post_types = get_post_types(
+			array(
+				'public'   => true,
+				'_builtin' => false,
+			),
+			'names'
+		);
 
 		$array = self::lightning_layout_target_array();
 
@@ -263,6 +252,8 @@ class Lightning_G3_Three_Column_Unit_Condition {
 				if ( 'col-three-content-center' === $options['layout']['front-page'] ) {
 					$three_column_center = true;
 				}
+			} elseif ( 'col-three-content-center' === lightning_layout_by_single() ) {
+				$three_column_center = true;
 			}
 		} elseif ( is_front_page() && is_home() ) {
 			if ( isset( $options['layout']['front-page'] ) ) {
@@ -280,20 +271,7 @@ class Lightning_G3_Three_Column_Unit_Condition {
 					$three_column_center = true;
 				}
 			}
-		}
-
-		$additional_post_types = get_post_types(
-			array(
-				'public'   => true,
-				'_builtin' => false,
-			),
-			'names'
-		);
-
-		/**
-		 * アーカイブページの場合
-		 */
-		if ( is_archive() && ! is_search() && ! is_author() ) {
+		} elseif ( is_archive() && ! is_search() && ! is_author() ) {
 			$current_post_type_info = lightning_get_post_type();
 			$archive_post_types     = array( 'post' ) + $additional_post_types;
 			foreach ( $archive_post_types as $archive_post_type ) {
@@ -303,25 +281,10 @@ class Lightning_G3_Three_Column_Unit_Condition {
 					}
 				}
 			}
+		} elseif ( 'col-three-content-center' === lightning_layout_by_single() ) {
+			$three_column_center = true;
 		}
-
-		if ( is_singular() ) {
-			global $post;
-			$single_post_types = array( 'post', 'page' ) + $additional_post_types;
-			foreach ( $single_post_types as $single_post_type ) {
-				if ( isset( $options['layout'][ 'single-' . $single_post_type ] ) && get_post_type() === $single_post_type ) {
-					if ( 'col-three-content-center' === $options['layout'][ 'single-' . $single_post_type ] ) {
-						$three_column_center = true;
-					}
-				}
-			}
-			if ( isset( $post->_lightning_design_setting['layout'] ) ) {
-				if ( 'col-three-content-center' === $post->_lightning_design_setting['layout'] ) {
-					$three_column_center = true;
-				}
-			}
-		}
-		return apply_filters( 'lightning_is_layout_three_column_content_center', $three_column_center );
+		return apply_filters( 'lightning_g3_is_layout_three_column_content_center', $three_column_center );
 	}
 
 	/**
@@ -329,8 +292,16 @@ class Lightning_G3_Three_Column_Unit_Condition {
 	 */
 	public static function lightning_is_layout_three_column_content_right() {
 		$three_column_right = false;
-		$options            = get_option( 'lightning_theme_options' );
+		$options           = get_option( 'lightning_theme_options' );
 		global $wp_query;
+
+		$additional_post_types = get_post_types(
+			array(
+				'public'   => true,
+				'_builtin' => false,
+			),
+			'names'
+		);
 
 		$array = self::lightning_layout_target_array();
 
@@ -349,6 +320,8 @@ class Lightning_G3_Three_Column_Unit_Condition {
 				if ( 'col-three-content-right' === $options['layout']['front-page'] ) {
 					$three_column_right = true;
 				}
+			} elseif ( 'col-three-content-right' === lightning_layout_by_single() ) {
+				$three_column_right = true;
 			}
 		} elseif ( is_front_page() && is_home() ) {
 			if ( isset( $options['layout']['front-page'] ) ) {
@@ -366,20 +339,7 @@ class Lightning_G3_Three_Column_Unit_Condition {
 					$three_column_right = true;
 				}
 			}
-		}
-
-		$additional_post_types = get_post_types(
-			array(
-				'public'   => true,
-				'_builtin' => false,
-			),
-			'names'
-		);
-
-		/**
-		 * アーカイブページの場合
-		 */
-		if ( is_archive() && ! is_search() && ! is_author() ) {
+		} elseif ( is_archive() && ! is_search() && ! is_author() ) {
 			$current_post_type_info = lightning_get_post_type();
 			$archive_post_types     = array( 'post' ) + $additional_post_types;
 			foreach ( $archive_post_types as $archive_post_type ) {
@@ -389,25 +349,10 @@ class Lightning_G3_Three_Column_Unit_Condition {
 					}
 				}
 			}
+		} elseif ( 'col-three-content-right' === lightning_layout_by_single() ) {
+			$three_column_right = true;
 		}
-
-		if ( is_singular() ) {
-			global $post;
-			$single_post_types = array( 'post', 'page' ) + $additional_post_types;
-			foreach ( $single_post_types as $single_post_type ) {
-				if ( isset( $options['layout'][ 'single-' . $single_post_type ] ) && get_post_type() === $single_post_type ) {
-					if ( 'col-three-content-right' === $options['layout'][ 'single-' . $single_post_type ] ) {
-						$three_column_right = true;
-					}
-				}
-			}
-			if ( isset( $post->_lightning_design_setting['layout'] ) ) {
-				if ( 'col-three-content-right' === $post->_lightning_design_setting['layout'] ) {
-					$three_column_right = true;
-				}
-			}
-		}
-		return apply_filters( 'lightning_is_layout_three_column_content_right', $three_column_right );
+		return apply_filters( 'lightning_g3_is_layout_three_column_content_right', $three_column_right );
 	}
 
 	/**
