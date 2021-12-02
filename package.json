@@ -1,0 +1,24 @@
+{
+  "name": "lightning-g3-three-column-unit",
+  "version": "1.0.0",
+  "description": "Lightning G3 Three Column Unit",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drill-lancer/lightning-g3-three-column-unit.git"
+  },
+  "author": "DRILL LANCER",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/drill-lancer/lightning-g3-three-column-unit/issues"
+  },
+  "homepage": "https://github.com/drill-lancer/lightning-g3-three-column-unit/#readme",
+  "devDependencies": {
+    "@wordpress/env": "^4.1.3",
+    "gulp": "^4.0.2",
+    "npm-check-updates": "^12.0.2"
+  }
+}
