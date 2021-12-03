@@ -42,7 +42,7 @@ class Lightning_G3_Three_Column_Unit_Widget_Area {
 	 */
 	public static function add_sub_section_prepend() {
 		?>
-		<div class="<?php lightning_the_class_name( 'sub-section' ); ?>-inner">
+		<div class="<?php lightning_the_class_name( 'sub-section-inner' ); ?>">
 		<?php
 	}
 
@@ -61,8 +61,8 @@ class Lightning_G3_Three_Column_Unit_Widget_Area {
 	public static function add_sidebar() {
 		if ( Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column() ) {
 			?>
-			<div class="<?php lightning_the_class_name( 'sub-section-2' ); ?>">
-				<div class="<?php lightning_the_class_name( 'sub-section-2' ); ?>-inner">
+			<div class="<?php lightning_the_class_name( 'add-section' ); ?>">
+				<div class="<?php lightning_the_class_name( 'add-section-inner' ); ?>">
 					<?php
 					if ( is_active_sidebar( 'lightning-addtional-sidebar' ) ) {
 						dynamic_sidebar( 'lightning-addtional-sidebar' );

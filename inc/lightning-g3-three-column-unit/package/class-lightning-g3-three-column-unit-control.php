@@ -57,9 +57,11 @@ class Lightning_G3_Three_Column_Unit_Control {
 
 		$three_column_set = Lightning_G3_Three_Column_Unit_Condition::lightning_is_set_three_column();
 
-		$class_names['main-section'] = array( 'main-section' );
-		$class_names['sub-section']  = array( 'sub-section' );
-		$class_names['add-section']  = array( 'add-section' );
+		$class_names['main-section']      = array( 'main-section' );
+		$class_names['sub-section']       = array( 'sub-section' );
+		$class_names['add-section']       = array( 'add-section' );
+		$class_names['sub-section-inner'] = array( 'sub-section-inner' );
+		$class_names['add-section-inner'] = array( 'add-section-inner' );
 
 		if ( $one_column_layout ) {
 			if ( lightning_is_subsection_display() ) {
@@ -87,7 +89,7 @@ class Lightning_G3_Three_Column_Unit_Control {
 			unset( $class_names['site-body']['site-body--base--on'] );
 			unset( $class_names['main-section']['main-section--base--on'] );
 			unset( $class_names['sub-section']['sub-section--base--on'] );
-			unset( $class_names['sub-section']['add-section--base--on'] );
+			unset( $class_names['add-section']['add-section--base--on'] );
 		}
 
 		return $class_names;
