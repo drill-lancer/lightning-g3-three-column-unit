@@ -53,46 +53,29 @@ class Lightning_G3_Three_Column_Unit_Style {
 		$max_2col_width       = $container_3col_width + $outer_container_margin - 1;
 		$min_3col_width       = $container_3col_width + $outer_container_margin;
 
-		$special_condiston = array(
-			'variety',
-			'variety-bs4',
-			'fort',
-			'fort2',
-			'fort-bs4',
-			'fort-bs4-footer-light',
-			'pale',
-			'pale-bs4',
-		);
-
 		$container_class = '';
 		$dynamic_css     = '';
 
-		if ( in_array( $current_skin, $special_condiston, true ) ) {
-			$container_class .= '
-			.container,
-			.siteHeadContainer.container .navbar-header,
-			.gMenu_outer nav,
-			.header_scrolled .gMenu_outer nav
-			';
-		} else {
-			$container_class .= '
-			.container,
-			.header_scrolled .gMenu_outer nav
-			';
-		}
+		$container_class .= '
+		.container,
+		.global-nav--layout--penetration .global-nav-list,
+		.header_scrolled .global-nav.global-nav--scrolled--nav-container .global-nav-list
+		';
 
-		$dynamic_css .=
-		$container_class . '{
-			padding-left: 0;
-			padding-right: 0;
+		$dynamic_css .= '
+		@media (min-width: 992px) {
+			.header_scrolled .global-nav.global-nav--scrolled--nav-center .global-nav-list>li {
+				width: 100%;
+			}
 		}
-		.siteContent>.container>.row,
-		.siteContent.siteContent-base-on>.container>.row {
+		.site-body-container.container {
 			display: flex;
 			justify-content: space-between;
 			flex-wrap: wrap;
-			margin-left: 0;
-			margin-right: 0;
+			margin-left: auto;
+			margin-right: auto;
+			padding-left: 0;
+			padding-right: 0;
 		}
 		.sub-section,
 		.main-section,
