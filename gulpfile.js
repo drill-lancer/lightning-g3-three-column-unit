@@ -8,6 +8,9 @@ gulp.task("dist", function() {
 				"./vendor/**",
 				"./**/*.php",
 				"./**/*.txt",
+				"!./tests/**",
+				"!./dist/**",
+				"!./node_modules/**"
 			],
 			{
 				base: "./"
