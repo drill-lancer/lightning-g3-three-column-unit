@@ -15,6 +15,16 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Composer のファイルを読み込み ( composer install --no-dev )
+require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+
+// アップデーターの設定
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/drill-lancer/lightning-g3-three-column-unit',
+	__FILE__,
+	'lightning-g3-three-column-unit'
+);
+$myUpdateChecker->setBranch( 'master' );
 
 if ( 'lightning' === get_template() && 'g3' === get_option( 'lightning_theme_generation' ) ) {
 	$data = get_file_data( __FILE__, array( 'version' => 'Version' ) );
