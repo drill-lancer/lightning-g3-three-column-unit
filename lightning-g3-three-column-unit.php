@@ -10,7 +10,7 @@
  * License: GPL 2.0 or Later
  * Domain Path: /languages
  *
- * @package Lightning Customize Unit
+ * @package Lightning G3 Three Column Unit
  */
 
 defined( 'ABSPATH' ) || exit;
