@@ -6,7 +6,6 @@ on:
 
 env:
   plugin_name: lightning-g3-three-column-unit
-  version: 
 
 jobs:
   release:
