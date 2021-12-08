@@ -1,6 +1,13 @@
 {
-    "core": null,
-    "plugins": [
-        "."
-	]
+	"core": null,
+	"plugins": [
+		".",
+		"../my-lightning/",
+		"../drill-lancer-addon"
+	],
+	"config": {
+		"WP_DEBUG": true,
+		"SCRIPT_DEBUG": true,
+		"FS_METHOD": "direct"
+	}
 }

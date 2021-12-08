@@ -74,8 +74,8 @@ class Lightning_G3_Three_Column_Unit_Condition {
 	 * @return boolean
 	 */
 	public static function lightning_is_layout_one_column() {
-		$onecolumn = false;
-		$options   = get_option( 'lightning_theme_options' );
+		$one_column = false;
+		$options    = get_option( 'lightning_theme_options' );
 		global $wp_query;
 
 		$additional_post_types = get_post_types(
@@ -86,13 +86,14 @@ class Lightning_G3_Three_Column_Unit_Condition {
 			'names'
 		);
 
-		$array = self::lightning_layout_target_array();
+		$array                      = self::lightning_layout_target_array();
+		$lightning_layout_by_single = self::lightning_layout_by_single();
 
 		foreach ( $array as $key => $value ) {
 			if ( call_user_func( $value['function'] ) ) {
 				if ( isset( $options['layout'][ $key ] ) ) {
 					if ( 'col-one' === $options['layout'][ $key ] || 'col-one-no-subsection' === $options['layout'][ $key ] ) {
-						$onecolumn = true;
+						$one_column = true;
 					}
 				}
 			}
@@ -102,26 +103,26 @@ class Lightning_G3_Three_Column_Unit_Condition {
 			// show_on_front 'page' case.
 			if ( isset( $options['layout']['front-page'] ) ) {
 				if ( 'col-one' === $options['layout']['front-page'] || 'col-one-no-subsection' === $options['layout']['front-page'] ) {
-					$onecolumn = true;
+					$one_column = true;
 				}
-			} elseif ( 'col-one' === lightning_layout_by_single() || 'col-one-no-subsection' === lightning_layout_by_single() ) {
-				$onecolumn = true;
+			} elseif ( 'col-one' === self::lightning_layout_by_single() || 'col-one-no-subsection' === self::lightning_layout_by_single() ) {
+				$one_column = true;
 			}
 		} elseif ( is_front_page() && is_home() ) {
 			// show_on_front 'posts' case.
 			if ( isset( $options['layout']['front-page'] ) ) {
 				if ( 'col-one' === $options['layout']['front-page'] || 'col-one-no-subsection' === $options['layout']['front-page'] ) {
-					$onecolumn = true;
+					$one_column = true;
 				} elseif ( isset( $options['layout']['archive-post'] ) ) {
 					if ( 'col-one' === $options['layout']['archive-post'] || 'col-one-no-subsection' === $options['layout']['archive-post'] ) {
-						$onecolumn = true;
+						$one_column = true;
 					}
 				}
 			}
 		} elseif ( ! is_front_page() && is_home() ) {
 			if ( isset( $options['layout']['archive-post'] ) ) {
 				if ( 'col-one' === $options['layout']['archive-post'] || 'col-one-no-subsection' === $options['layout']['archive-post'] ) {
-					$onecolumn = true;
+					$one_column = true;
 				}
 			}
 		} elseif ( is_archive() && ! is_search() && ! is_author() ) {
@@ -130,14 +131,28 @@ class Lightning_G3_Three_Column_Unit_Condition {
 			foreach ( $archive_post_types as $archive_post_type ) {
 				if ( isset( $options['layout'][ 'archive-' . $archive_post_type ] ) && $current_post_type_info['slug'] === $archive_post_type ) {
 					if ( 'col-one' === $options['layout'][ 'archive-' . $archive_post_type ] || 'col-one-no-subsection' === $options['layout'][ 'archive-' . $archive_post_type ] ) {
-						$onecolumn = true;
+						$one_column = true;
 					}
 				}
 			}
-		} elseif ( 'col-one' === lightning_layout_by_single() || 'col-one-no-subsection' === lightning_layout_by_single() ) {
-			$onecolumn = true;
+		} elseif ( is_singular() ) {
+			$single_post_types = array( 'post', 'page' ) + $additional_post_types;
+			foreach ( $single_post_types as $single_post_type ) {
+				if ( isset( $options['layout'][ 'single-' . $single_post_type ] ) && get_post_type() === $single_post_type ) {
+					if ( 'col-one' === $options['layout'][ 'single-' . $single_post_type ] || 'col-one-no-subsection' === $options['layout'][ 'single-' . $single_post_type ] ) {
+						$one_column = true;
+					}
+				}
+			}
+			if ( $lightning_layout_by_single ) {
+				if ( 'col-one' === $lightning_layout_by_single || 'col-one-no-subsection' === $lightning_layout_by_single ) {
+					$one_column = true;
+				} else {
+					$one_column = false;
+				}
+			}
 		}
-		return apply_filters( 'lightning_g3_is_layout_one_column', $onecolumn );
+		return apply_filters( 'lightning_g3_is_layout_one_column', $one_column );
 	}
 
 	/**
@@ -167,7 +182,8 @@ class Lightning_G3_Three_Column_Unit_Condition {
 			'names'
 		);
 
-		$array = self::lightning_layout_target_array();
+		$array                      = self::lightning_layout_target_array();
+		$lightning_layout_by_single = self::lightning_layout_by_single();
 
 		foreach ( $array as $key => $value ) {
 			if ( call_user_func( $value['function'] ) ) {
@@ -184,7 +200,7 @@ class Lightning_G3_Three_Column_Unit_Condition {
 				if ( 'col-three-content-left' === $options['layout']['front-page'] ) {
 					$three_column_left = true;
 				}
-			} elseif ( 'col-three-content-left' === lightning_layout_by_single() ) {
+			} elseif ( 'col-three-content-left' === self::lightning_layout_by_single() ) {
 				$three_column_left = true;
 			}
 		} elseif ( is_front_page() && is_home() ) {
@@ -213,8 +229,22 @@ class Lightning_G3_Three_Column_Unit_Condition {
 					}
 				}
 			}
-		} elseif ( 'col-three-content-left' === lightning_layout_by_single() ) {
-			$three_column_left = true;
+		} elseif ( is_singular() ) {
+			$single_post_types = array( 'post', 'page' ) + $additional_post_types;
+			foreach ( $single_post_types as $single_post_type ) {
+				if ( isset( $options['layout'][ 'single-' . $single_post_type ] ) && get_post_type() === $single_post_type ) {
+					if ( 'col-three-content-left' === $options['layout'][ 'single-' . $single_post_type ] || 'col-one-no-subsection' === $options['layout'][ 'single-' . $single_post_type ] ) {
+						$three_column_left = true;
+					}
+				}
+			}
+			if ( $lightning_layout_by_single ) {
+				if ( 'col-three-content-left' === $lightning_layout_by_single || 'col-one-no-subsection' === $lightning_layout_by_single ) {
+					$three_column_left = true;
+				} else {
+					$three_column_left = false;
+				}
+			}
 		}
 		return apply_filters( 'lightning_g3_is_layout_three_column_content_left', $three_column_left );
 	}
@@ -224,7 +254,7 @@ class Lightning_G3_Three_Column_Unit_Condition {
 	 */
 	public static function lightning_is_layout_three_column_content_center() {
 		$three_column_center = false;
-		$options           = get_option( 'lightning_theme_options' );
+		$options             = get_option( 'lightning_theme_options' );
 		global $wp_query;
 
 		$additional_post_types = get_post_types(
@@ -235,7 +265,8 @@ class Lightning_G3_Three_Column_Unit_Condition {
 			'names'
 		);
 
-		$array = self::lightning_layout_target_array();
+		$array                      = self::lightning_layout_target_array();
+		$lightning_layout_by_single = self::lightning_layout_by_single();
 
 		foreach ( $array as $key => $value ) {
 			if ( call_user_func( $value['function'] ) ) {
@@ -252,7 +283,7 @@ class Lightning_G3_Three_Column_Unit_Condition {
 				if ( 'col-three-content-center' === $options['layout']['front-page'] ) {
 					$three_column_center = true;
 				}
-			} elseif ( 'col-three-content-center' === lightning_layout_by_single() ) {
+			} elseif ( 'col-three-content-center' === self::lightning_layout_by_single() ) {
 				$three_column_center = true;
 			}
 		} elseif ( is_front_page() && is_home() ) {
@@ -281,8 +312,22 @@ class Lightning_G3_Three_Column_Unit_Condition {
 					}
 				}
 			}
-		} elseif ( 'col-three-content-center' === lightning_layout_by_single() ) {
-			$three_column_center = true;
+		} elseif ( is_singular() ) {
+			$single_post_types = array( 'post', 'page' ) + $additional_post_types;
+			foreach ( $single_post_types as $single_post_type ) {
+				if ( isset( $options['layout'][ 'single-' . $single_post_type ] ) && get_post_type() === $single_post_type ) {
+					if ( 'col-three-content-center' === $options['layout'][ 'single-' . $single_post_type ] || 'col-one-no-subsection' === $options['layout'][ 'single-' . $single_post_type ] ) {
+						$three_column_center = true;
+					}
+				}
+			}
+			if ( $lightning_layout_by_single ) {
+				if ( 'col-three-content-center' === $lightning_layout_by_single || 'col-one-no-subsection' === $lightning_layout_by_single ) {
+					$three_column_center = true;
+				} else {
+					$three_column_center = false;
+				}
+			}
 		}
 		return apply_filters( 'lightning_g3_is_layout_three_column_content_center', $three_column_center );
 	}
@@ -292,7 +337,7 @@ class Lightning_G3_Three_Column_Unit_Condition {
 	 */
 	public static function lightning_is_layout_three_column_content_right() {
 		$three_column_right = false;
-		$options           = get_option( 'lightning_theme_options' );
+		$options            = get_option( 'lightning_theme_options' );
 		global $wp_query;
 
 		$additional_post_types = get_post_types(
@@ -303,7 +348,8 @@ class Lightning_G3_Three_Column_Unit_Condition {
 			'names'
 		);
 
-		$array = self::lightning_layout_target_array();
+		$array                      = self::lightning_layout_target_array();
+		$lightning_layout_by_single = self::lightning_layout_by_single();
 
 		foreach ( $array as $key => $value ) {
 			if ( call_user_func( $value['function'] ) ) {
@@ -320,7 +366,7 @@ class Lightning_G3_Three_Column_Unit_Condition {
 				if ( 'col-three-content-right' === $options['layout']['front-page'] ) {
 					$three_column_right = true;
 				}
-			} elseif ( 'col-three-content-right' === lightning_layout_by_single() ) {
+			} elseif ( 'col-three-content-right' === self::lightning_layout_by_single() ) {
 				$three_column_right = true;
 			}
 		} elseif ( is_front_page() && is_home() ) {
@@ -349,8 +395,22 @@ class Lightning_G3_Three_Column_Unit_Condition {
 					}
 				}
 			}
-		} elseif ( 'col-three-content-right' === lightning_layout_by_single() ) {
-			$three_column_right = true;
+		} elseif ( is_singular() ) {
+			$single_post_types = array( 'post', 'page' ) + $additional_post_types;
+			foreach ( $single_post_types as $single_post_type ) {
+				if ( isset( $options['layout'][ 'single-' . $single_post_type ] ) && get_post_type() === $single_post_type ) {
+					if ( 'col-three-content-right' === $options['layout'][ 'single-' . $single_post_type ] || 'col-one-no-subsection' === $options['layout'][ 'single-' . $single_post_type ] ) {
+						$three_column_right = true;
+					}
+				}
+			}
+			if ( $lightning_layout_by_single ) {
+				if ( 'col-three-content-right' === $lightning_layout_by_single || 'col-one-no-subsection' === $lightning_layout_by_single ) {
+					$three_column_right = true;
+				} else {
+					$three_column_right = false;
+				}
+			}
 		}
 		return apply_filters( 'lightning_g3_is_layout_three_column_content_right', $three_column_right );
 	}
@@ -411,8 +471,7 @@ class Lightning_G3_Three_Column_Unit_Condition {
 			$three_column_set = true;
 		} elseif ( ! empty( $three_column_content_right_posts ) ) {
 			$three_column_set = true;
-		}
-		if ( ! empty( $options['layout'] ) ) {
+		} elseif ( ! empty( $options['layout'] ) ) {
 			if ( in_array( 'col-three-content-left', $options['layout'], true ) ) {
 				$three_column_set = true;
 			} elseif ( in_array( 'col-three-content-center', $options['layout'], true ) ) {
