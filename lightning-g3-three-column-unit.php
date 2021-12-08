@@ -16,13 +16,12 @@
 defined( 'ABSPATH' ) || exit;
 
 
-if ( 'lightning' === get_template() || 'lightning-pro' === get_template() ) {
+if ( 'lightning' === get_template() && 'g3' === get_option( 'lightning_theme_generation' ) ) {
 	$data = get_file_data( __FILE__, array( 'version' => 'Version' ) );
 	define( 'LTCU_VERSION', $data['version'] );
 
 	define( 'LTCU_PATH', plugin_dir_path( __FILE__ ) );
 	load_plugin_textdomain( 'lightning-g3-three-column-unit', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-	require_once LTCU_PATH . '/inc/vk-helpers/config.php';
 	require_once LTCU_PATH . '/inc/lightning-g3-three-column-unit/config.php';
 } else {
 	return;
