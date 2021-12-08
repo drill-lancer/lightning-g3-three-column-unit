@@ -220,7 +220,7 @@ class Lightning_G3_Three_Column_Unit_Condition {
 				}
 			}
 		} elseif ( is_archive() && ! is_search() && ! is_author() ) {
-			$current_post_type_info = lightning_get_post_type();
+			$current_post_type_info = VK_Helpers::get_post_type_info();
 			$archive_post_types     = array( 'post' ) + $additional_post_types;
 			foreach ( $archive_post_types as $archive_post_type ) {
 				if ( isset( $options['layout'][ 'archive-' . $archive_post_type ] ) && $current_post_type_info['slug'] === $archive_post_type ) {
@@ -303,7 +303,7 @@ class Lightning_G3_Three_Column_Unit_Condition {
 				}
 			}
 		} elseif ( is_archive() && ! is_search() && ! is_author() ) {
-			$current_post_type_info = lightning_get_post_type();
+			$current_post_type_info = VK_Helpers::get_post_type_info();
 			$archive_post_types     = array( 'post' ) + $additional_post_types;
 			foreach ( $archive_post_types as $archive_post_type ) {
 				if ( isset( $options['layout'][ 'archive-' . $archive_post_type ] ) && $current_post_type_info['slug'] === $archive_post_type ) {
@@ -386,7 +386,7 @@ class Lightning_G3_Three_Column_Unit_Condition {
 				}
 			}
 		} elseif ( is_archive() && ! is_search() && ! is_author() ) {
-			$current_post_type_info = lightning_get_post_type();
+			$current_post_type_info = VK_Helpers::get_post_type_info();
 			$archive_post_types     = array( 'post' ) + $additional_post_types;
 			foreach ( $archive_post_types as $archive_post_type ) {
 				if ( isset( $options['layout'][ 'archive-' . $archive_post_type ] ) && $current_post_type_info['slug'] === $archive_post_type ) {
