@@ -1,9 +1,7 @@
 {
 	"core": null,
 	"plugins": [
-		".",
-		"../my-lightning/",
-		"../drill-lancer-addon"
+		"."
 	],
 	"config": {
 		"WP_DEBUG": true,

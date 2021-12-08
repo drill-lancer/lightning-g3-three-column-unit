@@ -1,2 +1,2 @@
 # lightning-g3-three-column-unit
-Lightning Three Column Unit
+Lightning G3 Three Column Unit
