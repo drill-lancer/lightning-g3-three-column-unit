@@ -15,9 +15,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Make Distribution
     - run: |
-      npm run dist
-      echo "DIST_VERSION=$(echo ${{ github.ref }} | sed -E 's/^refs\/tags\/v?(.*)$/\1/')" >> $GITHUB_ENV
-      cd dist/ && zip -r ${{ env.plugin_name }}.zip ${{ env.plugin_name }}/ && mv ${{ env.plugin_name }}-${{ env.DIST_VERSION }}.zip ${GITHUB_WORKSPACE}
+        npm run dist
+        echo "DIST_VERSION=$(echo ${{ github.ref }} | sed -E 's/^refs\/tags\/v?(.*)$/\1/')" >> $GITHUB_ENV
+        cd dist/ && zip -r ${{ env.plugin_name }}.zip ${{ env.plugin_name }}/ && mv ${{ env.plugin_name }}-${{ env.DIST_VERSION }}.zip ${GITHUB_WORKSPACE}
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
