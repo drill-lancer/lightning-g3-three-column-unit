@@ -4,7 +4,8 @@
   "description": "Lightning G3 Three Column Unit",
   "main": "gulpfile.js",
   "scripts": {
-    "dist": "npx gulp dist"
+    "dist": "composer install --no-dev && npx gulp dist",
+	"phpunit": "composer install && npx wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/lightning-g3-three-column-unit/phpunit.xml --verbose'"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,6 @@
   "devDependencies": {
     "@wordpress/env": "^4.1.3",
     "gulp": "^4.0.2",
-    "npm-check-updates": "^12.0.2"
+    "npm-check-updates": "^12.0.3"
   }
 }

@@ -3,14 +3,11 @@ const gulp = require('gulp');
 gulp.task("dist", function() {
 	return gulp.src(
 			[
-				"./**/*.php",
-				"./**/*.txt",
 				"./inc/**",
 				"./languages/**",
-				"!./tests/**",
-				"!./dist/**",
-				"!./node_modules/**/*.*",
-				"!./vendor/**/*.*",
+				"./vendor/**",
+				"./**/*.php",
+				"./**/*.txt",
 			],
 			{
 				base: "./"
