@@ -122,7 +122,7 @@ class Lightning_G3_Three_Column_Unit_Style {
 
 		if ( class_exists( 'Lightning_Header_Top' ) ) {
 			$dynamic_css .= '
-			.siteHeader .headerTop .container {
+			.site-header .header-top .container {
 				padding-left: 0;
 				padding-right: 0;
 			}
@@ -130,16 +130,16 @@ class Lightning_G3_Three_Column_Unit_Style {
 			if ( 'display' === $options['narrow_window_description'] ) {
 				$dynamic_css .= '
 				@media ( max-width: ' . $max_1col_width . 'px ) {
-					.headerTop {
+					.header-top {
 						display: block;
 					}
-					.headerTop .headerTop_description {
+					.header-top .header-top_description {
 						text-align: center;
 					}
-					.headerTop nav {
+					.header-top nav {
 						display: none;
 					}
-					.headerTop .headerTop_contactBtn {
+					.header-top .header-top_contactBtn {
 						display: none;
 					}
 				}
@@ -147,7 +147,7 @@ class Lightning_G3_Three_Column_Unit_Style {
 			} else {
 				$dynamic_css .= '
 				@media ( max-width: ' . $max_1col_width . 'px ) {
-					.headerTop {
+					.header-top {
 						display: none;
 					}
 				}
@@ -160,7 +160,7 @@ class Lightning_G3_Three_Column_Unit_Style {
 			body.device-pc .vk-mobile-nav-menu-btn {
 				display: block;
 			}
-			.siteHeader_logo {
+			.site-header-logo {
 				font-size: 1.6rem;
 				float: inherit;
 				text-align: center;
@@ -168,17 +168,17 @@ class Lightning_G3_Three_Column_Unit_Style {
 				margin: 0 auto;
 				padding: 0 45px;
 			}
-			.siteHeader_logo.navbar-brand {
+			.site-header-logo.navbar-brand {
 				float: none;
 				height: auto;
 			}
 			.navbar-header {
 				float: none;
 			}
-			.siteHeadContainer.container .navbar-header {
+			.site-head-container.container .navbar-header {
 				padding: 0;
 			}
-			.gMenu_outer {
+			.global-nav {
 				display: none;
 			}
 		}
