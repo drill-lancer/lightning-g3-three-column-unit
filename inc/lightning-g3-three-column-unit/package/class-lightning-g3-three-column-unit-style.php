@@ -133,14 +133,25 @@ class Lightning_G3_Three_Column_Unit_Style {
 					.header-top {
 						display: block;
 					}
-					.header-top .header-top_description {
+					.header-top .header-top-description {
 						text-align: center;
 					}
 					.header-top nav {
 						display: none;
 					}
-					.header-top .header-top_contactBtn {
+					.header-top .header-top-contact-btn {
 						display: none;
+					}
+					.vk-mobile-nav-menu-btn {
+						top: calc( 40px - 7px + 5px );
+					}
+					.admin-bar .vk-mobile-nav-menu-btn {
+						top: calc( 32px + 40px - 7px + 5px );
+					}
+				}
+				@media (max-width: 782px) {
+					.admin-bar .vk-mobile-nav-menu-btn {
+						top: calc(46px + 40px - 7px + 5px);
 					}
 				}
 				';
