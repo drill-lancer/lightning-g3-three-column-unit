@@ -3,7 +3,7 @@
  * Plugin Name: Lightning G3 Three Column Unit
  * Plugin URI: https://github.com/drill-lancer/lightning-g3-three-column-unit
  * Description: Lightning G3 Three Column Unit
- * Version: 1.0.0
+ * Version: 1.0.9
  * Author:  DRILL LANCER
  * Author URI: https://www.drill-lancer.com
  * Text Domain: lightning-g3-three-column-unit
