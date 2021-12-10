@@ -3,12 +3,14 @@
  * Plugin Name: Lightning G3 Three Column Unit
  * Plugin URI: https://github.com/drill-lancer/lightning-g3-three-column-unit
  * Description: Lightning G3 Three Column Unit
- * Version: 1.0.9
  * Author:  DRILL LANCER
  * Author URI: https://www.drill-lancer.com
  * Text Domain: lightning-g3-three-column-unit
  * License: GPL 2.0 or Later
  * Domain Path: /languages
+ * Requires at least: 5.7
+ * Requires PHP: 7.3
+ * Version: 1.0.9
  *
  * @package Lightning G3 Three Column Unit
  */
