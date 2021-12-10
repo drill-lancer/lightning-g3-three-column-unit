@@ -10,7 +10,7 @@
  * Domain Path: /languages
  * Requires at least: 5.7
  * Requires PHP: 7.3
- * Version: 1.0.9
+ * Version: 1.0.0
  *
  * @package Lightning G3 Three Column Unit
  */
