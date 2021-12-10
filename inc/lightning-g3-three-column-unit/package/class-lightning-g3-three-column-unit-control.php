@@ -64,7 +64,7 @@ class Lightning_G3_Three_Column_Unit_Control {
 		$class_names['add-section-inner'] = array( 'add-section-inner' );
 
 		if ( $one_column_layout ) {
-			if ( lightning_is_subsection_display() ) {
+			if ( lightning_is_subsection() ) {
 				$class_names['main-section'][] = ' main-section--margin-bottom--on';
 			}
 		}
