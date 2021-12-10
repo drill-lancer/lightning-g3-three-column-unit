@@ -25,6 +25,7 @@ $my_update_checker = Puc_v4_Factory::buildUpdateChecker(
 	'lightning-g3-three-column-unit'
 );
 $my_update_checker->getVcsApi()->enableReleaseAssets();
+$my_update_checker->setBranch('master');
 
 if ( 'lightning' === get_template() && 'g3' === get_option( 'lightning_theme_generation' ) ) {
 	$data = get_file_data( __FILE__, array( 'version' => 'Version' ) );
