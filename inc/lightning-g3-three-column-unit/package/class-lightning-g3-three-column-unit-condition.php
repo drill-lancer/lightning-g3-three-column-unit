@@ -31,7 +31,9 @@ class Lightning_G3_Three_Column_Unit_Condition {
 				}
 			}
 			if ( isset( $post->_lightning_design_setting['layout'] ) ) {
-				if ( 'col-one-no-subsection' === $post->_lightning_design_setting['layout'] ) {
+				if ( 'default' === $post->_lightning_design_setting['layout'] ) {
+					$layout = 'default';
+				} elseif ( 'col-one-no-subsection' === $post->_lightning_design_setting['layout'] ) {
 					$layout = 'col-one-no-subsection';
 				} elseif ( 'col-one' === $post->_lightning_design_setting['layout'] ) {
 					$layout = 'col-one';
