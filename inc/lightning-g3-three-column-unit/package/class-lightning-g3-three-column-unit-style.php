@@ -77,6 +77,11 @@ class Lightning_G3_Three_Column_Unit_Style {
 			padding-left: 0;
 			padding-right: 0;
 		}
+
+		.site-body-bottom .container {
+			padding-left: 0;
+			padding-right: 0;
+		}
 		.sub-section,
 		.main-section,
 		.add-section {
