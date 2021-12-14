@@ -25,6 +25,8 @@ jobs:
         node-version: "${{ steps.nodenv.outputs.NODEVERSION }}"
     - name: Install Node Scripts
       run: npm install
+    - name: Build
+      run: npm run build
     - name: Make Distribution
       run: |
         npm run dist
