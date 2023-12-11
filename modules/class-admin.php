@@ -5,10 +5,12 @@
  * @package Lightning Three Column Unit
  */
 
+namespace Lightning_G3_Three_Column_Unit;
+
 /**
  * Conditions of Lightning Three Column Unit Admin
  */
-class Lightning_G3_Three_Column_Unit_Admin {
+class Admin {
 
 	/**
 	 * Constructor
@@ -237,5 +239,3 @@ class Lightning_G3_Three_Column_Unit_Admin {
 
 
 }
-
-new Lightning_G3_Three_Column_Unit_Admin();

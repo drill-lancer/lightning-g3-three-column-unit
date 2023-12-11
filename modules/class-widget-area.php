@@ -5,10 +5,13 @@
  * @package Lightning Three Column Unit
  */
 
+namespace Lightning_G3_Three_Column_Unit;
+use Lightning_G3_Three_Column_Unit\Condition;
+
 /**
  * Lightning Three Column Unit Widget Area
  */
-class Lightning_G3_Three_Column_Unit_Widget_Area {
+class Widget_Area {
 
 	/**
 	 * Constructor
@@ -59,7 +62,7 @@ class Lightning_G3_Three_Column_Unit_Widget_Area {
 	 * Add Sidebar
 	 */
 	public static function add_sidebar() {
-		if ( Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column() ) {
+		if ( Condition::lightning_is_layout_three_column() ) {
 			?>
 			<div class="<?php lightning_the_class_name( 'add-section' ); ?>">
 				<div class="<?php lightning_the_class_name( 'add-section-inner' ); ?>">
@@ -75,5 +78,3 @@ class Lightning_G3_Three_Column_Unit_Widget_Area {
 	}
 
 }
-
-new Lightning_G3_Three_Column_Unit_Widget_Area();
