@@ -167,7 +167,7 @@ class Widget_Area {
 					} 
 					if ( is_search() && is_active_sidebar( 'lightning-addtional-sidebar-search-result' ) ) {
 						dynamic_sidebar( 'lightning-addtional-sidebar-search-result' );
-					} elseif ( $post_type === get_post_type() && $post_type === get_query_var( 'post_type' ) && is_active_sidebar( 'lightning-addtional-sidebar-' . $post_type ) ) {
+					} elseif ( ( $post_type === get_post_type() || $post_type === get_query_var( 'post_type' ) ) && is_active_sidebar( 'lightning-addtional-sidebar-' . $post_type ) ) {
 						dynamic_sidebar( 'lightning-addtional-sidebar-' . $post_type );
 					}
 					
