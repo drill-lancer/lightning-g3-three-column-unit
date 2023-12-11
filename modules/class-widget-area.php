@@ -32,7 +32,7 @@ class Widget_Area {
 			array(
 				'name'          => __( 'Additional Sidebar Common Upper', 'lightning-g3-three-column-unit' ),
 				'id'            => 'lightning-addtional-sidebar-common-upper',
-				'description'   => __( 'Display only Three Column Layout', 'lightning-g3-three-column-unit' ),
+				'description'   => __( 'This widget area appears on Three Column Layout only.', 'lightning-g3-three-column-unit' ),
 				'before_widget' => '<aside class="widget %2$s" id="%1$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h4 class="widget-title sub-section-title">',
@@ -42,8 +42,21 @@ class Widget_Area {
 
 		register_sidebar(
 			array(
+				'name'          => __( 'Additional Sidebar for Top Page', 'lightning-g3-three-column-unit' ),
+				'id'            => 'lightning-addtional-sidebar-top-page',
+				'description'   => __( 'This widget area appears on the Front Page and Three Column Layout only.', 'lightning-g3-three-column-unit' ),
+				'before_widget' => '<aside class="widget %2$s" id="%1$s">',
+				'after_widget'  => '</aside>',
+				'before_title'  => '<h4 class="widget-title sub-section-title">',
+				'after_title'   => '</h4>',
+			)
+		);
+
+		register_sidebar(
+			array(
 				'name'          => __( 'Additional Sidebar for Search Result', 'lightning-g3-three-column-unit' ),
 				'id'            => 'lightning-addtional-sidebar-search-result',
+				'description'   => __( 'This widget area appears on the Search Result and Three Column Layout only.', 'lightning-g3-three-column-unit' ),
 				'before_widget' => '<aside class="widget %2$s" id="%1$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h4 class="widget-title sub-section-title">',
@@ -60,19 +73,19 @@ class Widget_Area {
 			$sidebar_description = '';
 			if ( 'post' === $post_type ) {
 
-				$sidebar_description = __( 'This widget area appears on the Posts page only. If you do not set any widgets in this area, this theme sets the following widgets "Recent posts", "Category", and "Archive" by default. These default widgets will be hidden, when you set any widgets. <br><br> If you installed our plugin VK All in One Expansion Unit (Free), you can use the following widgets, "VK_Recent posts",  "VK_Categories", and  "VK_archive list".', 'lightning-g3-three-column-unit' );
+				$sidebar_description = __( 'This widget area appears on the Post and Three Column Layout only.', 'lightning-g3-three-column-unit' );
 
 			} elseif ( 'page' === $post_type ) {
 
-				$sidebar_description = __( 'This widget area appears on the Pages page only. If you do not set any widgets in this area, this theme sets the "Child pages list widget" by default. This default widget will be hidden, when you set any widgets. <br><br> If you installed our plugin VK All in One Expansion Unit (Free), you can use the "VK_ child page list" widget for the alternative.', 'lightning-g3-three-column-unit' );
+				$sidebar_description = __( 'This widget area appears on the Page and Three Column Layout only.', 'lightning-g3-three-column-unit' );
 
 			} elseif ( 'attachment' === $post_type ) {
 
-				$sidebar_description = __( 'This widget area appears on the Media page only.', 'lightning-g3-three-column-unit' );
+				$sidebar_description = __( 'This widget area appears on the Media and Three Column Layout only.', 'lightning-g3-three-column-unit' );
 
 			} else {
 
-				$sidebar_description = sprintf( __( 'This widget area appears on the %s contents page only.', 'lightning-g3-three-column-unit' ), $post_type_name );
+				$sidebar_description = sprintf( __( 'This widget area appears on the %s and Three Column Layout only.', 'lightning-g3-three-column-unit' ), $post_type_name );
 
 			}
 
@@ -92,9 +105,9 @@ class Widget_Area {
 
 		register_sidebar(
 			array(
-				'name'          => __( 'Additional Sidebar', 'lightning-g3-three-column-unit' ),
+				'name'          => __( 'Additional Sidebar ( Deprecated)', 'lightning-g3-three-column-unit' ),
 				'id'            => 'lightning-addtional-sidebar',
-				'description'   => __( 'Display only Three Column Layout', 'lightning-g3-three-column-unit' ),
+				'description'   => __( 'This widget area appears no page.', 'lightning-g3-three-column-unit' ),
 				'before_widget' => '<aside class="widget %2$s" id="%1$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h4 class="widget-title sub-section-title">',
@@ -106,7 +119,7 @@ class Widget_Area {
 			array(
 				'name'          => __( 'Additional Sidebar Common Bottom', 'lightning-g3-three-column-unit' ),
 				'id'            => 'lightning-addtional-sidebar-common-bottom',
-				'description'   => __( 'Display only Three Column Layout', 'lightning-g3-three-column-unit' ),
+				'description'   => __( 'This widget area appears on Three Column Layout only.', 'lightning-g3-three-column-unit' ),
 				'before_widget' => '<aside class="widget %2$s" id="%1$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h4 class="widget-title sub-section-title">',
@@ -149,12 +162,13 @@ class Widget_Area {
 					}
 
 					// サイドバー中部
+					if ( ( is_front_page() || is_home() ) && is_active_sidebar( 'lightning-addtional-sidebar-top-page' ) ) {
+						dynamic_sidebar( 'lightning-addtional-sidebar-top-page' );
+					} 
 					if ( is_search() && is_active_sidebar( 'lightning-addtional-sidebar-search-result' ) ) {
 						dynamic_sidebar( 'lightning-addtional-sidebar-search-result' );
 					} elseif ( $post_type === get_post_type() && $post_type === get_query_var( 'post_type' ) && is_active_sidebar( 'lightning-addtional-sidebar-' . $post_type ) ) {
 						dynamic_sidebar( 'lightning-addtional-sidebar-' . $post_type );
-					} elseif ( is_active_sidebar( 'lightning-addtional-sidebar' ) ) {
-						dynamic_sidebar( 'lightning-addtional-sidebar' );							
 					}
 					
 					// サイドバー下部
