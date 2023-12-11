@@ -64,6 +64,18 @@ class Widget_Area {
 			)
 		);
 
+		register_sidebar(
+			array(
+				'name'          => __( 'Additional Sidebar for 404 Page', 'lightning-g3-three-column-unit' ),
+				'id'            => 'lightning-addtional-sidebar-404-page',
+				'description'   => __( 'This widget area appears on the Search Result and Three Column Layout only.', 'lightning-g3-three-column-unit' ),
+				'before_widget' => '<aside class="widget %2$s" id="%1$s">',
+				'after_widget'  => '</aside>',
+				'before_title'  => '<h4 class="widget-title sub-section-title">',
+				'after_title'   => '</h4>',
+			)
+		);
+
 		$post_types = get_post_types( array( 'public' => true ) );
 
 		foreach ( $post_types as $post_type ) {
@@ -168,7 +180,9 @@ class Widget_Area {
 						dynamic_sidebar( 'lightning-addtional-sidebar-search-result' );
 					} elseif ( ( $post_type === get_post_type() || $post_type === get_query_var( 'post_type' ) ) && is_active_sidebar( 'lightning-addtional-sidebar-' . $post_type ) ) {
 						dynamic_sidebar( 'lightning-addtional-sidebar-' . $post_type );
-					}
+					} elseif ( is_404() && is_active_sidebar( 'lightning-addtional-sidebar-404-page' ) ) {
+						dynamic_sidebar( 'lightning-addtional-sidebar-404-page' );
+					} 
 					
 					// サイドバー下部
 					if ( is_active_sidebar( 'lightning-addtional-sidebar-common-bottom' ) ) {
