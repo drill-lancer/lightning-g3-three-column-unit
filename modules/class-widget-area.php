@@ -27,7 +27,7 @@ class Widget_Area {
 	 * Register Sidebar
 	 */
 	public static function register_widget_area() {
-		
+
 		register_sidebar(
 			array(
 				'name'          => __( 'Additional Sidebar Common Upper', 'lightning-g3-three-column-unit' ),
@@ -143,16 +143,21 @@ class Widget_Area {
 			<div class="<?php lightning_the_class_name( 'add-section' ); ?>">
 				<div class="<?php lightning_the_class_name( 'add-section-inner' ); ?>">
 					<?php
+					// サイドバー上部
 					if ( is_active_sidebar( 'lightning-addtional-sidebar-common-upper' ) ) {
 						dynamic_sidebar( 'lightning-addtional-sidebar-common-upper' );
 					}
+
+					// サイドバー中部
 					if ( is_search() && is_active_sidebar( 'lightning-addtional-sidebar-search-result' ) ) {
 						dynamic_sidebar( 'lightning-addtional-sidebar-search-result' );
 					} elseif ( $post_type === get_post_type() && $post_type === get_query_var( 'post_type' ) && is_active_sidebar( 'lightning-addtional-sidebar-' . $post_type ) ) {
 						dynamic_sidebar( 'lightning-addtional-sidebar-' . $post_type );
 					} elseif ( is_active_sidebar( 'lightning-addtional-sidebar' ) ) {
-							dynamic_sidebar( 'lightning-addtional-sidebar' );							
-					}				
+						dynamic_sidebar( 'lightning-addtional-sidebar' );							
+					}
+					
+					// サイドバー下部
 					if ( is_active_sidebar( 'lightning-addtional-sidebar-common-bottom' ) ) {
 						dynamic_sidebar( 'lightning-addtional-sidebar-common-bottom');
 					}
