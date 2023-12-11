@@ -105,9 +105,9 @@ class Widget_Area {
 
 		register_sidebar(
 			array(
-				'name'          => __( 'Additional Sidebar ( Deprecated)', 'lightning-g3-three-column-unit' ),
-				'id'            => 'lightning-addtional-sidebar',
-				'description'   => __( 'This widget area appears no page.', 'lightning-g3-three-column-unit' ),
+				'name'          => __( 'Additional Sidebar Common Bottom', 'lightning-g3-three-column-unit' ),
+				'id'            => 'lightning-addtional-sidebar-common-bottom',
+				'description'   => __( 'This widget area appears on Three Column Layout only.', 'lightning-g3-three-column-unit' ),
 				'before_widget' => '<aside class="widget %2$s" id="%1$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h4 class="widget-title sub-section-title">',
@@ -117,9 +117,9 @@ class Widget_Area {
 
 		register_sidebar(
 			array(
-				'name'          => __( 'Additional Sidebar Common Bottom', 'lightning-g3-three-column-unit' ),
-				'id'            => 'lightning-addtional-sidebar-common-bottom',
-				'description'   => __( 'This widget area appears on Three Column Layout only.', 'lightning-g3-three-column-unit' ),
+				'name'          => __( 'Additional Sidebar ( Deprecated )', 'lightning-g3-three-column-unit' ),
+				'id'            => 'lightning-addtional-sidebar',
+				'description'   => __( 'This widget area appears no page.', 'lightning-g3-three-column-unit' ),
 				'before_widget' => '<aside class="widget %2$s" id="%1$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h4 class="widget-title sub-section-title">',
