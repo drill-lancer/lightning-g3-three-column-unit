@@ -19,6 +19,7 @@ use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 use Lightning_G3_Three_Column_Unit\Admin;
 use Lightning_G3_Three_Column_Unit\Condition;
 use Lightning_G3_Three_Column_Unit\Control;
+use Lightning_G3_Three_Column_Unit\Script;
 use Lightning_G3_Three_Column_Unit\Style;
 use Lightning_G3_Three_Column_Unit\Widget_Area;
 
@@ -46,11 +47,13 @@ if ( 'lightning' === get_template() && 'g3' === get_option( 'lightning_theme_gen
 	require_once $modules_path . 'class-admin.php';
 	require_once $modules_path . 'class-condition.php';
 	require_once $modules_path . 'class-control.php';
+	require_once $modules_path . 'class-script.php';
 	require_once $modules_path . 'class-style.php';
 	require_once $modules_path . 'class-widget-area.php';
 	new Admin();
 	new Condition();
 	new Control();
+	new Script();
 	new Style();
 	new Widget_Area();
 }
