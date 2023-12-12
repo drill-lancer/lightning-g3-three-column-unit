@@ -42,10 +42,11 @@ class Script {
 
 		$sidebar_position = ! empty( $lightning_theme_option['sidebar_position'] ) && 'left' === $lightning_theme_option['sidebar_position'] ? 'left' : 'right';
 
-		$main_width             = $options['main_width'];
-		$side_width             = $options['side_width'];
-		$column_margin          = $options['column_margin'];
-		$outer_container_margin = $options['outer_container_margin'];
+		$main_width                = $options['main_width'];
+		$side_width                = $options['side_width'];
+		$column_margin             = $options['column_margin'];
+		$outer_container_margin    = $options['outer_container_margin'];
+        $sub_sidebar_position_2col = $options['2col_sub_sidebar_position'];
 
 		$container_2col_width = $main_width + $side_width + $column_margin;
 		$container_3col_width = $container_2col_width + $side_width + $column_margin;
@@ -54,7 +55,7 @@ class Script {
 		$max_2col_width       = $container_3col_width + $outer_container_margin - 1;
 		$min_3col_width       = $container_3col_width + $outer_container_margin;
 
-        if ( $three_column_layout ) {
+        if ( $three_column_layout && 'under-main-sidebar' ===  $sub_sidebar_position_2col ) {
            
             $script = <<<EOT
             const isThreeColumnLayout = $three_column_layout;

@@ -31,6 +31,7 @@ class Admin {
 			'three-to-one-via-two'      => 'disable',
 			'main_sidebar_control'      => 'wrap-down',
 			'sub_sidebar_control'       => 'hide',
+			'2col_sub_sidebar_position' => 'above-footer',
 			'narrow_window_description' => 'hide',
 		);
 		return $args;
@@ -208,6 +209,30 @@ class Admin {
 				'choices'  => array(
 					'wrap-down' => __( 'Wrap Down', 'lightning-g3-three-column-unit' ),
 					'hide'      => __( 'Hide', 'lightning-g3-three-column-unit' ),
+				),
+			)
+		);
+
+		// Sub Sidebar Control.
+		$wp_customize->add_setting(
+			'lightning_g3_three_column_unit_options[2col_sub_sidebar_position]',
+			array(
+				'default'           => $default_option['2col_sub_sidebar_position'],
+				'type'              => 'option',
+				'capability'        => 'edit_theme_options',
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+		$wp_customize->add_control(
+			'lightning_g3_three_column_unit_options[2col_sub_sidebar_position]',
+			array(
+				'label'    => __( 'Sub Sidebar Position When Selected Layout is 3 Column Layout and Current Layout is 2 Column Layout', 'lightning-g3-three-column-unit' ),
+				'section'  => 'lightning_g3_three_column_unit_setting',
+				'settings' => 'lightning_g3_three_column_unit_options[2col_sub_sidebar_position]',
+				'type'     => 'select',
+				'choices'  => array(
+					'above-footer'       => __( 'Above Footer', 'lightning-g3-three-column-unit' ),
+					'under-main-sidebar' => __( 'Under Main Sidebar', 'lightning-g3-three-column-unit' ),
 				),
 			)
 		);
