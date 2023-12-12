@@ -79,21 +79,21 @@ class Script {
                     }
                 }
             }
-            
-            window.addEventListener('DOMContentLoaded', () => {
+
+            const fixLayout = () => {
+                const sideSection = document.querySelector( '.side-section' );
                 const subSection  = document.querySelector( '.sub-section' );
                 const addSection  = document.querySelector( '.add-section' );
-                const sideSection = document.querySelector( '.side-section' );   
                 const windowWidth = window.innerWidth;
-                changeLayout( windowWidth, sideSection, subSection, addSection );           
+                changeLayout( windowWidth, sideSection, subSection, addSection );
+            }
+
+            window.addEventListener('DOMContentLoaded', () => {
+                fixLayout();           
             });
 
             window.addEventListener('resize', () => {
-                const subSection  = document.querySelector( '.sub-section' );
-                const addSection  = document.querySelector( '.add-section' );
-                const sideSection = document.querySelector( '.side-section' ); 
-                const windowWidth = window.innerWidth;
-                changeLayout( windowWidth, sideSection, subSection, addSection );
+                fixLayout();
             });
             EOT;
 
