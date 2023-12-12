@@ -96,9 +96,7 @@ class Script {
             window.addEventListener('resize', () => {
                 fixLayout();
             });
-            EOT;
-
-            
+            EOT;           
             
             wp_add_inline_script( 'lightning-js', $script );
         }
