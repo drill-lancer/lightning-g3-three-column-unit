@@ -17,7 +17,6 @@ class Admin {
 	 */
 	public function __construct() {
 		add_action( 'customize_register', array( __CLASS__, 'resister_customize' ), 11 );
-		add_action( 'customize_controls_enqueue_scripts', array( __CLASS__, 'custmoze_script' ) );
 	}
 
 	/**
@@ -36,85 +35,6 @@ class Admin {
 			'narrow_window_description' => 'hide',
 		);
 		return $args;
-	}
-
-	/**
-	 * Custmoze Script
-	 */
-	public static function custmoze_script() {
-		$options = get_option( 'lightning_g3_three_column_unit_options' );
-		$script = <<<EOT
-		const lightning_g3_three_column_unit_options = {
-			main_width: {$options['main_width']},
-			side_width: {$options['side_width']},
-			column_margin: {$options['column_margin']},
-			outer_container_margin: {$options['outer_container_margin']},
-			three_to_one_via_two: '{$options['three-to-one-via-two']}',
-			main_sidebar_control: '{$options['main_sidebar_control']}',
-			sub_sidebar_control: '{$options['sub_sidebar_control']}',
-			2col_sub_sidebar_position: '{$options['2col_sub_sidebar_position']}',
-			narrow_window_description: '{$options['narrow_window_description']}',
-		};
-		wp.customize.bind( 'ready', function() {
-			wp.customize( 'lightning_g3_three_column_unit_options[main_width]', function( value ) {
-				value.bind( function( to ) {
-					lightning_g3_three_column_unit_options.main_width = to;
-				} );
-			} );
-			wp.customize( 'lightning_g3_three_column_unit_options[side_width]', function( value ) {
-				value.bind( function( to ) {
-					lightning_g3_three_column_unit_options.side_width = to;
-				} );
-			} );
-			wp.customize( 'lightning_g3_three_column_unit_options[column_margin]', function( value ) {
-				value.bind( function( to ) {
-					lightning_g3_three_column_unit_options.column_margin = to;
-				} );
-			} );
-			wp.customize( 'lightning_g3_three_column_unit_options[outer_container_margin]', function( value ) {
-				value.bind( function( to ) {
-					lightning_g3_three_column_unit_options.outer_container_margin = to;
-				} );
-			} );
-			wp.customize( 'lightning_g3_three_column_unit_options[three-to-one-via-two]', function( value ) {
-				value.bind( function( to ) {
-					lightning_g3_three_column_unit_options.three_to_one_via_two = to;
-				} );
-			} );
-			wp.customize( 'lightning_g3_three_column_unit_options[main_sidebar_control]', function( value ) {
-				value.bind( function( to ) {
-					lightning_g3_three_column_unit_options.main_sidebar_control = to;
-				} );
-			} );
-			wp.customize( 'lightning_g3_three_column_unit_options[sub_sidebar_control]', function( value ) {
-				value.bind( function( to ) {
-					lightning_g3_three_column_unit_options.sub_sidebar_control = to;
-				} );
-			} );
-			wp.customize( 'lightning_g3_three_column_unit_options[2col_sub_sidebar_position]', function( value ) {
-				value.bind( function( to ) {
-					lightning_g3_three_column_unit_options.2col_sub_sidebar_position = to;
-				} );
-			} );
-			wp.customize( 'lightning_g3_three_column_unit_options[narrow_window_description]', function( value ) {
-				value.bind( function( to ) {
-					lightning_g3_three_column_unit_options,narrow_window_description = to;
-				} );
-			} );
-		} );
-
-		wp.customize.bind( 'change', function() {
-			if ( lightning_g3_three_column_unit_options.three_to_one_via_two === 'enable' ) {
-				if ( lightning_g3_three_column_unit_options.sub_sidebar_control === 'wrap-down' ) {
-					wp.customize.control( 'lightning_g3_three_column_unit_options[2col_sub_sidebar_position]' ).activate();
-				} else {
-					wp.customize.control( 'lightning_g3_three_column_unit_options[2col_sub_sidebar_position]' ).deactivate();
-				}
-			}
-		} );
-		EOT;
-
-		wp_add_inline_script( 'customize-controls', $script );
 	}
 
 	/**
