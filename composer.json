@@ -8,12 +8,13 @@
 		}
 	],
 	"require": {
-		"yahnis-elsts/plugin-update-checker": "*"
+		"yahnis-elsts/plugin-update-checker": "^5.3"
 	},
 	"require-dev": {
 		"vektor-inc/vk-wp-unit-test-tools": "^0.10.0",
 		"sirbrillig/phpcs-variable-analysis": "^2.8",
 		"wp-phpunit/wp-phpunit": "^5.4",
-		"yoast/phpunit-polyfills": "^1.0"
+		"yoast/phpunit-polyfills": "^1.0",
+		"doctrine/instantiator": "1.5.0"
 	}
 }

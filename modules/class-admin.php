@@ -5,10 +5,12 @@
  * @package Lightning Three Column Unit
  */
 
+namespace Lightning_G3_Three_Column_Unit;
+
 /**
  * Conditions of Lightning Three Column Unit Admin
  */
-class Lightning_G3_Three_Column_Unit_Admin {
+class Admin {
 
 	/**
 	 * Constructor
@@ -29,6 +31,7 @@ class Lightning_G3_Three_Column_Unit_Admin {
 			'three-to-one-via-two'      => 'disable',
 			'main_sidebar_control'      => 'wrap-down',
 			'sub_sidebar_control'       => 'hide',
+			'2col_sub_sidebar_position' => 'above-footer',
 			'narrow_window_description' => 'hide',
 		);
 		return $args;
@@ -42,6 +45,8 @@ class Lightning_G3_Three_Column_Unit_Admin {
 		global $wp_customize;
 
 		$default_option = self::default_option();
+		$current_option = get_option( 'lightning_g3_three_column_unit_options' );
+		require_once plugin_dir_path( __FILE__ ) . 'class-vk-custom-html-control.php';
 
 		// Add Section.
 		$wp_customize->add_section(
@@ -57,6 +62,27 @@ class Lightning_G3_Three_Column_Unit_Admin {
 		$wp_customize->remove_control( 'ltg_sidebar_fix_setting_title' );
 		$wp_customize->remove_setting( 'lightning_theme_options[sidebar_fix]' );
 		$wp_customize->remove_control( 'lightning_theme_options[sidebar_fix]' );
+
+
+		$wp_customize->add_setting(
+			'width-setting',
+			array(
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+		$wp_customize->add_control(
+			new \VK_Custom_Html_Control(
+				$wp_customize,
+				'width-setting',
+				array(
+					'label'            => __( 'Width Setting', 'lightning-g3-three-column-unit' ),
+					'section'          => 'lightning_g3_three_column_unit_setting',
+					'type'             => 'text',
+					'custom_title_sub' => '',
+					'custom_html'      => '',
+				)
+			)
+		);
 
 		// Main Culumn Width.
 		$wp_customize->add_setting(
@@ -138,30 +164,26 @@ class Lightning_G3_Three_Column_Unit_Admin {
 			)
 		);
 
-		// When Three Column Layout is Choosed and Narrowing Window Size, Make Two Column Layout.
 		$wp_customize->add_setting(
-			'lightning_g3_three_column_unit_options[three-to-one-via-two]',
+			'sidebar-setting',
 			array(
-				'default'           => $default_option['three-to-one-via-two'],
-				'type'              => 'option',
-				'capability'        => 'edit_theme_options',
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
 		$wp_customize->add_control(
-			'lightning_g3_three_column_unit_options[three-to-one-via-two]',
-			array(
-				'label'    => __( 'When Three Column Layout is Choosed and Narrowing Window Size, Make Two Column Layout', 'lightning-g3-three-column-unit' ),
-				'section'  => 'lightning_g3_three_column_unit_setting',
-				'settings' => 'lightning_g3_three_column_unit_options[three-to-one-via-two]',
-				'type'     => 'select',
-				'choices'  => array(
-					'disable' => __( 'Disable', 'lightning-g3-three-column-unit' ),
-					'enable'  => __( 'Enable', 'lightning-g3-three-column-unit' ),
-				),
+			new \VK_Custom_Html_Control(
+				$wp_customize,
+				'sidebar-setting',
+				array(
+					'label'            => __( 'Sidebar Setting', 'lightning-g3-three-column-unit' ),
+					'section'          => 'lightning_g3_three_column_unit_setting',
+					'type'             => 'text',
+					'custom_title_sub' => '',
+					'custom_html'      => '',
+				)
 			)
 		);
-
+		
 		// Main Sidebar Control.
 		$wp_customize->add_setting(
 			'lightning_g3_three_column_unit_options[main_sidebar_control]',
@@ -185,6 +207,7 @@ class Lightning_G3_Three_Column_Unit_Admin {
 				),
 			)
 		);
+		
 
 		// Sub Sidebar Control.
 		$wp_customize->add_setting(
@@ -210,6 +233,96 @@ class Lightning_G3_Three_Column_Unit_Admin {
 			)
 		);
 
+		$wp_customize->add_setting(
+			'three-column-setting',
+			array(
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+		$wp_customize->add_control(
+			new \VK_Custom_Html_Control(
+				$wp_customize,
+				'three-column-setting',
+				array(
+					'label'            => __( 'Three Column Layout Setting', 'lightning-g3-three-column-unit' ),
+					'section'          => 'lightning_g3_three_column_unit_setting',
+					'type'             => 'text',
+					'custom_title_sub' => '',
+					'custom_html'      => '',
+				)
+			)
+		);
+
+
+		$wp_customize->add_setting(
+			'lightning_g3_three_column_unit_options[three-to-one-via-two]',
+			array(
+				'default'           => $default_option['three-to-one-via-two'],
+				'type'              => 'option',
+				'capability'        => 'edit_theme_options',
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+		$wp_customize->add_control(
+			'lightning_g3_three_column_unit_options[three-to-one-via-two]',
+			array(
+				'label'    => __( 'Make Two Column Layout on Marrow Window', 'lightning-g3-three-column-unit' ),
+				'section'  => 'lightning_g3_three_column_unit_setting',
+				'settings' => 'lightning_g3_three_column_unit_options[three-to-one-via-two]',
+				'type'     => 'select',
+				'choices'  => array(
+					'disable' => __( 'Disable', 'lightning-g3-three-column-unit' ),
+					'enable'  => __( 'Enable', 'lightning-g3-three-column-unit' ),
+				),
+			)
+		);
+
+
+		// Sub Sidebar Control.
+		$wp_customize->add_setting(
+			'lightning_g3_three_column_unit_options[2col_sub_sidebar_position]',
+			array(
+				'default'           => $default_option['2col_sub_sidebar_position'],
+				'type'              => 'option',
+				'capability'        => 'edit_theme_options',
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+		$wp_customize->add_control(
+			'lightning_g3_three_column_unit_options[2col_sub_sidebar_position]',
+			array(
+				'label'    => __( 'Wrapping position of sub sidebar', 'lightning-g3-three-column-unit' ),
+				'section'  => 'lightning_g3_three_column_unit_setting',
+				'settings' => 'lightning_g3_three_column_unit_options[2col_sub_sidebar_position]',
+				'type'     => 'select',
+				'choices'  => array(
+					'above-footer'       => __( 'Above Footer', 'lightning-g3-three-column-unit' ),
+					'under-main-sidebar' => __( 'Under Main Sidebar', 'lightning-g3-three-column-unit' ),
+				),
+			)
+		);
+
+		$wp_customize->add_setting(
+			'header-top-setting',
+			array(
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+		$wp_customize->add_control(
+			new \VK_Custom_Html_Control(
+				$wp_customize,
+				'header-top-setting',
+				array(
+					'label'            => __( 'Header Top Setting', 'lightning-g3-three-column-unit' ),
+					'section'          => 'lightning_g3_three_column_unit_setting',
+					'type'             => 'text',
+					'custom_title_sub' => '',
+					'custom_html'      => '',
+				)
+			)
+		);
+		
+
 		// Narrow Window Discription.
 		$wp_customize->add_setting(
 			'lightning_g3_three_column_unit_options[narrow_window_description]',
@@ -223,7 +336,7 @@ class Lightning_G3_Three_Column_Unit_Admin {
 		$wp_customize->add_control(
 			'lightning_g3_three_column_unit_options[narrow_window_description]',
 			array(
-				'label'    => __( 'Header Top Description Control on Narrow Window', 'lightning-g3-three-column-unit' ),
+				'label'    => __( 'Display Header Top Description on Narrow Window', 'lightning-g3-three-column-unit' ),
 				'section'  => 'lightning_g3_three_column_unit_setting',
 				'settings' => 'lightning_g3_three_column_unit_options[narrow_window_description]',
 				'type'     => 'select',
@@ -237,5 +350,3 @@ class Lightning_G3_Three_Column_Unit_Admin {
 
 
 }
-
-new Lightning_G3_Three_Column_Unit_Admin();

@@ -5,10 +5,12 @@
  * @package Lightning Three Column Unit
  */
 
+namespace Lightning_G3_Three_Column_Unit;
+
 /**
  * Conditions of Lightning Three Column Unit
  */
-class Lightning_G3_Three_Column_Unit_Condition {
+class Condition {
 
 	/**
 	 * Lightning Layout Single
@@ -490,5 +492,3 @@ class Lightning_G3_Three_Column_Unit_Condition {
 
 	}
 }
-
-new Lightning_G3_Three_Column_Unit_Condition();

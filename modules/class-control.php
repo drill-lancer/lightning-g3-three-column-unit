@@ -5,10 +5,13 @@
  * @package Lightning Three Column Unit
  */
 
+namespace Lightning_G3_Three_Column_Unit;
+use Lightning_G3_Three_Column_Unit\Condition;
+
 /**
  * Lightning Three Column Unit
  */
-class Lightning_G3_Three_Column_Unit_Control {
+class Control {
 
 	/**
 	 * Constructor
@@ -47,15 +50,15 @@ class Lightning_G3_Three_Column_Unit_Control {
 		$options['sidebar_fix'] = 'no-fix';
 		update_option( 'lightning_theme_options', $options );
 
-		$one_column_layout   = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_one_column();
-		$two_column_layout   = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_two_column();
-		$three_column_layout = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column();
+		$one_column_layout   = Condition::lightning_is_layout_one_column();
+		$two_column_layout   = Condition::lightning_is_layout_two_column();
+		$three_column_layout = Condition::lightning_is_layout_three_column();
 
-		$three_column_content_left_layout   = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_left();
-		$three_column_content_center_layout = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_center();
-		$three_column_content_right_layout  = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_right();
+		$three_column_content_left_layout   = Condition::lightning_is_layout_three_column_content_left();
+		$three_column_content_center_layout = Condition::lightning_is_layout_three_column_content_center();
+		$three_column_content_right_layout  = Condition::lightning_is_layout_three_column_content_right();
 
-		$three_column_set = Lightning_G3_Three_Column_Unit_Condition::lightning_is_set_three_column();
+		$three_column_set = Condition::lightning_is_set_three_column();
 
 		$class_names['main-section']      = array( 'main-section' );
 		$class_names['sub-section']       = array( 'sub-section' );
@@ -97,5 +100,3 @@ class Lightning_G3_Three_Column_Unit_Control {
 
 
 }
-
-new Lightning_G3_Three_Column_Unit_Control();

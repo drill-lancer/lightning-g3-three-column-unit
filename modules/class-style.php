@@ -5,10 +5,14 @@
  * @package Lightning Three Column Unit
  */
 
+namespace Lightning_G3_Three_Column_Unit;
+use Lightning_G3_Three_Column_Unit\Admin;
+use Lightning_G3_Three_Column_Unit\Condition;
+
 /**
  * Lightning Three Column Unit
  */
-class Lightning_G3_Three_Column_Unit_Style {
+class Style {
 
 	/**
 	 * Constructor
@@ -22,18 +26,18 @@ class Lightning_G3_Three_Column_Unit_Style {
 	 */
 	public static function render_style() {
 		$options = get_option( 'lightning_g3_three_column_unit_options' );
-		$default = Lightning_G3_Three_Column_Unit_Admin::default_option();
+		$default = Admin::default_option();
 		$options = wp_parse_args( $options, $default );
 
-		$one_column_layout   = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_one_column();
-		$two_column_layout   = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_two_column();
-		$three_column_layout = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column();
+		$one_column_layout   = Condition::lightning_is_layout_one_column();
+		$two_column_layout   = Condition::lightning_is_layout_two_column();
+		$three_column_layout = Condition::lightning_is_layout_three_column();
 
-		$three_column_content_left_layout   = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_left();
-		$three_column_content_center_layout = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_center();
-		$three_column_content_right_layout  = Lightning_G3_Three_Column_Unit_Condition::lightning_is_layout_three_column_content_right();
+		$three_column_content_left_layout   = Condition::lightning_is_layout_three_column_content_left();
+		$three_column_content_center_layout = Condition::lightning_is_layout_three_column_content_center();
+		$three_column_content_right_layout  = Condition::lightning_is_layout_three_column_content_right();
 
-		$three_column_set = Lightning_G3_Three_Column_Unit_Condition::lightning_is_set_three_column();
+		$three_column_set = Condition::lightning_is_set_three_column();
 
 		$lightning_theme_option = get_option( 'lightning_theme_options' );
 
@@ -485,31 +489,53 @@ class Lightning_G3_Three_Column_Unit_Style {
 				if ( $three_column_content_left_layout ) {
 					// 3 Column Content Left.
 					if ( 'wrap-down' === $options['sub_sidebar_control'] ) {
-						$dynamic_css .= '
-						@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
-							' . $container_class . ' {
-								width: ' . $container_2col_width . 'px;
-								max-width: ' . $container_2col_width . 'px;
+						if ( 'above-footer' === $options['2col_sub_sidebar_position'] ) {
+							$dynamic_css .= '
+							@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
+								' . $container_class . ' {
+									width: ' . $container_2col_width . 'px;
+									max-width: ' . $container_2col_width . 'px;
+								}
+								.main-section {
+									width: ' . $main_width . 'px;
+									max-width: ' . $main_width . 'px;
+									margin-right: ' . $column_margin . 'px;
+									order: 0;
+								}
+								.sub-section {
+									width: ' . $side_width . 'px;
+									max-width: ' . $side_width . 'px;
+									order: 1;
+								}
+								.add-section {
+									width: 100%;
+									max-width: 100%;
+									margin-top: 2em;
+									order: 2;
+								}
 							}
-							.main-section {
-								width: ' . $main_width . 'px;
-								max-width: ' . $main_width . 'px;
-								margin-right: ' . $column_margin . 'px;
-								order: 0;
+							';
+						} else {
+							$dynamic_css .= '
+							@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
+								' . $container_class . ' {
+									width: ' . $container_2col_width . 'px;
+									max-width: ' . $container_2col_width . 'px;
+								}
+								.main-section {
+									width: ' . $main_width . 'px;
+									max-width: ' . $main_width . 'px;
+									margin-right: ' . $column_margin . 'px;
+									order: 0;
+								}
+								.side-section {
+									width: ' . $side_width . 'px;
+									max-width: ' . $side_width . 'px;
+									order: 1;
+								}
 							}
-							.sub-section {
-								width: ' . $side_width . 'px;
-								max-width: ' . $side_width . 'px;
-								order: 1;
-							}
-							.add-section {
-								width: 100%;
-								max-width: 100%;
-								margin-top: 2em;
-								order: 2;
-							}
+							';
 						}
-						';
 					} else {
 						$dynamic_css .= '
 						@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
@@ -539,31 +565,53 @@ class Lightning_G3_Three_Column_Unit_Style {
 					if ( 'left' === $sidebar_position ) {
 						// Sidebar Left.
 						if ( 'wrap-down' === $options['sub_sidebar_control'] ) {
-							$dynamic_css .= '
-							@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
-								' . $container_class . ' {
-									width: ' . $container_2col_width . 'px;
-									max-width: ' . $container_2col_width . 'px;
+							if ( 'above-footer' === $options['2col_sub_sidebar_position'] ) {
+								$dynamic_css .= '
+								@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
+									' . $container_class . ' {
+										width: ' . $container_2col_width . 'px;
+										max-width: ' . $container_2col_width . 'px;
+									}
+									.main-section {
+										width: ' . $main_width . 'px;
+										max-width: ' . $main_width . 'px;
+										margin-left: ' . $column_margin . 'px;
+										order: 1;
+									}
+									.sub-section {
+										width: ' . $side_width . 'px;
+										max-width: ' . $side_width . 'px;
+										order: 0;
+									}
+									.add-section {
+										width: 100%;
+										max-width: 100%;
+										margin-top: 2em;
+										order: 2;
+									}
 								}
-								.main-section {
-									width: ' . $main_width . 'px;
-									max-width: ' . $main_width . 'px;
-									margin-left: ' . $column_margin . 'px;
-									order: 1;
+								';
+							} else {
+								$dynamic_css .= '
+								@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
+									' . $container_class . ' {
+										width: ' . $container_2col_width . 'px;
+										max-width: ' . $container_2col_width . 'px;
+									}
+									.main-section {
+										width: ' . $main_width . 'px;
+										max-width: ' . $main_width . 'px;
+										margin-left: ' . $column_margin . 'px;
+										order: 1;
+									}
+									.side-section {
+										width: ' . $side_width . 'px;
+										max-width: ' . $side_width . 'px;
+										order: 0;
+									}
 								}
-								.sub-section {
-									width: ' . $side_width . 'px;
-									max-width: ' . $side_width . 'px;
-									order: 0;
-								}
-								.add-section {
-									width: 100%;
-									max-width: 100%;
-									margin-top: 2em;
-									order: 2;
-								}
+								';
 							}
-							';
 						} else {
 							$dynamic_css .= '
 							@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
@@ -591,31 +639,53 @@ class Lightning_G3_Three_Column_Unit_Style {
 					} else {
 						// Sidebar Right.
 						if ( 'wrap-down' === $options['sub_sidebar_control'] ) {
-							$dynamic_css .= '
-							@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
-								' . $container_class . ' {
-									width: ' . $container_2col_width . 'px;
-									max-width: ' . $container_2col_width . 'px;
+							if ( 'above-footer' === $options['2col_sub_sidebar_position'] ) {
+								$dynamic_css .= '
+								@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
+									' . $container_class . ' {
+										width: ' . $container_2col_width . 'px;
+										max-width: ' . $container_2col_width . 'px;
+									}
+									.main-section {
+										width: ' . $main_width . 'px;
+										max-width: ' . $main_width . 'px;
+										margin-right: ' . $column_margin . 'px;
+										order: 0;
+									}
+									.sub-section {
+										width: ' . $side_width . 'px;
+										max-width: ' . $side_width . 'px;
+										order: 1;
+									}
+									.add-section {
+										width: 100%;
+										max-width: 100%;
+										margin-top: 2em;
+										order: 2;
+									}
 								}
-								.main-section {
-									width: ' . $main_width . 'px;
-									max-width: ' . $main_width . 'px;
-									margin-right: ' . $column_margin . 'px;
-									order: 0;
+								';
+							} else {
+								$dynamic_css .= '
+								@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
+									' . $container_class . ' {
+										width: ' . $container_2col_width . 'px;
+										max-width: ' . $container_2col_width . 'px;
+									}
+									.main-section {
+										width: ' . $main_width . 'px;
+										max-width: ' . $main_width . 'px;
+										margin-right: ' . $column_margin . 'px;
+										order: 0;
+									}
+									.side-section {
+										width: ' . $side_width . 'px;
+										max-width: ' . $side_width . 'px;
+										order: 1;
+									}
 								}
-								.sub-section {
-									width: ' . $side_width . 'px;
-									max-width: ' . $side_width . 'px;
-									order: 1;
-								}
-								.add-section {
-									width: 100%;
-									max-width: 100%;
-									margin-top: 2em;
-									order: 2;
-								}
+								';
 							}
-							';
 						} else {
 							$dynamic_css .= '
 							@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
@@ -644,31 +714,53 @@ class Lightning_G3_Three_Column_Unit_Style {
 				} elseif ( $three_column_content_right_layout ) {
 					// 3 Column Content Right.
 					if ( 'wrap-down' === $options['sub_sidebar_control'] ) {
-						$dynamic_css .= '
-						@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
-							' . $container_class . ' {
-								width: ' . $container_2col_width . 'px;
-								max-width: ' . $container_2col_width . 'px;
+						if ( 'above-footer' === $options['2col_sub_sidebar_position'] ) {
+							$dynamic_css .= '
+							@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
+								' . $container_class . ' {
+									width: ' . $container_2col_width . 'px;
+									max-width: ' . $container_2col_width . 'px;
+								}
+								.main-section {
+									width: ' . $main_width . 'px;
+									max-width: ' . $main_width . 'px;
+									margin-left: ' . $column_margin . 'px;
+									order: 1;
+								}
+								.sub-section {
+									width: ' . $side_width . 'px;
+									max-width: ' . $side_width . 'px;
+									order: 0;
+								}
+								.add-section {
+									width: 100%;
+									max-width: 100%;
+									margin-top: 2em;
+									order: 2;
+								}
 							}
-							.main-section {
-								width: ' . $main_width . 'px;
-								max-width: ' . $main_width . 'px;
-								margin-left: ' . $column_margin . 'px;
-								order: 1;
+							';
+						} else {
+							$dynamic_css .= '
+							@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
+								' . $container_class . ' {
+									width: ' . $container_2col_width . 'px;
+									max-width: ' . $container_2col_width . 'px;
+								}
+								.main-section {
+									width: ' . $main_width . 'px;
+									max-width: ' . $main_width . 'px;
+									margin-left: ' . $column_margin . 'px;
+									order: 1;
+								}
+								.side-section {
+									width: ' . $side_width . 'px;
+									max-width: ' . $side_width . 'px;
+									order: 0;
+								}
 							}
-							.sub-section {
-								width: ' . $side_width . 'px;
-								max-width: ' . $side_width . 'px;
-								order: 0;
-							}
-							.add-section {
-								width: 100%;
-								max-width: 100%;
-								margin-top: 2em;
-								order: 2;
-							}
+							';
 						}
-						';
 					} else {
 						$dynamic_css .= '
 						@media ( min-width: ' . $min_2col_width . 'px ) and ( max-width: ' . $max_2col_width . 'px ) {
@@ -878,4 +970,3 @@ class Lightning_G3_Three_Column_Unit_Style {
 	}
 
 }
-new Lightning_G3_Three_Column_Unit_Style();
