@@ -68,7 +68,7 @@ class Script {
                     if ( windowWidth >= min_2col_width && windowWidth <= max_2col_width ) {
                         const sideSectionHTML = document.createElement("div");
                         sideSectionHTML.classList.add( 'side-section' );
-                        sideSectionHTML.innerHTML = subSection.outerHTML + addSection.outerHTML;
+                        sideSectionHTML.innerHTML = '<div class="side-section-inner">' + subSection.outerHTML + addSection.outerHTML + '</div>';
                         subSection.before( sideSectionHTML );
                         subSection.remove(); 
                         addSection.remove();
