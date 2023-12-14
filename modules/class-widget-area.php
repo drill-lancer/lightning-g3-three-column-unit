@@ -44,7 +44,7 @@ class Widget_Area {
 			array(
 				'name'          => __( 'Additional Sidebar for Top Page', 'lightning-g3-three-column-unit' ),
 				'id'            => 'lightning-addtional-sidebar-top-page',
-				'description'   => __( 'This widget area appears on the Front Page and Three Column Layout only.', 'lightning-g3-three-column-unit' ),
+				'description'   => __( 'This widget area appears on the Top Page and Three Column Layout only.', 'lightning-g3-three-column-unit' ),
 				'before_widget' => '<aside class="widget %2$s" id="%1$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h4 class="widget-title sub-section-title">',

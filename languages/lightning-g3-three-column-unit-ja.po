@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Lightning G3 Three Column Unit\n"
-"POT-Creation-Date: 2021-12-08 15:29+0900\n"
-"PO-Revision-Date: 2021-12-08 15:29+0900\n"
+"POT-Creation-Date: 2023-12-14 10:32+0900\n"
+"PO-Revision-Date: 2023-12-14 10:35+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
-"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.1\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: lightning-g3-three-column-unit.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -22,104 +22,296 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 "X-Poedit-SearchPathExcluded-1: node_modules\n"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:50
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:55
+#: modules/class-admin.php:55
 msgid "Lightning Three Column Unit"
 msgstr "Lightning Three Column Unit"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:74
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:78
+#: modules/class-admin.php:78
+msgid "Width Setting"
+msgstr "幅の設定"
+
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:100
+#: modules/class-admin.php:100
 msgid "Main Column Width Value ( px )"
 msgstr "メインセクションの幅（px）"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:94
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:120
+#: modules/class-admin.php:120
 msgid "Side Column Width ( px )"
 msgstr "サイドバーの幅（px）"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:114
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:140
+#: modules/class-admin.php:140
 msgid "Margin of Between Columns ( px )"
 msgstr "カラム間のマージン（px）"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:134
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:160
+#: modules/class-admin.php:160
 msgid "Minumum Margin Sum for Out of Container ( px )"
 msgstr "コンテナの外の最低マージンの合計（px）"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:154
-msgid ""
-"When Three Column Layout is Choosed and Narrowing Window Size, Make Two "
-"Column Layout"
-msgstr ""
-"3カラムレイアウトを選択時かつウィンドウ幅を狭めたときに２カラムレイアウトを"
-"生成する"
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:178
+#: modules/class-admin.php:178
+msgid "Sidebar Setting"
+msgstr "サイドバーの設定"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:159
-msgid "Disable"
-msgstr "無効"
-
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:160
-msgid "Enable"
-msgstr "有効"
-
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:178
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:200
+#: modules/class-admin.php:200
 msgid "Main Sidebar Control"
 msgstr "主サイドバーの制御"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:183
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:207
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:205
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:230
+#: modules/class-admin.php:205 modules/class-admin.php:230
 msgid "Wrap Down"
 msgstr "下に回り込ませる"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:184
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:208
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:232
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:206
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:231
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:345
+#: modules/class-admin.php:206 modules/class-admin.php:231
+#: modules/class-admin.php:345
 msgid "Hide"
 msgstr "非表示"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:202
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:225
+#: modules/class-admin.php:225
 msgid "Sub Sidebar Control"
 msgstr "副サイドバーの制御"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:226
-msgid "Header Top Description Control on Narrow Window"
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:247
+#: modules/class-admin.php:247
+msgid "Three Column Layout Setting"
+msgstr "3カラムレイアウト設定"
+
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:269
+#, fuzzy
+#| msgid "Header Top Description Control on Narrow Window"
+msgid "Make Two Column Layout on Marrow Window"
 msgstr "ウィンドウ幅が狭いときでもヘッダー上部のキャッチコピーを表示する"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-admin.php:231
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:274
+#: modules/class-admin.php:274
+msgid "Disable"
+msgstr "無効"
+
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:275
+#: modules/class-admin.php:275
+msgid "Enable"
+msgstr "有効"
+
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:294
+#: modules/class-admin.php:294
+msgid "Wrapping position of sub sidebar"
+msgstr "サブサイドバーの折り返し位置"
+
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:299
+#: modules/class-admin.php:299
+msgid "Above Footer"
+msgstr "フッター上"
+
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:300
+#: modules/class-admin.php:300
+msgid "Under Main Sidebar"
+msgstr "メイン・サイドバーの下"
+
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:316
+#: modules/class-admin.php:316
+msgid "Header Top Setting"
+msgstr "ヘッダー上部設定"
+
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:339
+#: modules/class-admin.php:339
+#, fuzzy
+#| msgid "Header Top Description Control on Narrow Window"
+msgid "Display Header Top Description on Narrow Window"
+msgstr "ウィンドウ幅が狭いときでもヘッダー上部のキャッチコピーを表示する"
+
+#: dist/lightning-g3-three-column-unit/modules/class-admin.php:344
+#: modules/class-admin.php:344
 msgid "Display"
 msgstr "表示する"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-control.php:28
+#: dist/lightning-g3-three-column-unit/modules/class-control.php:31
+#: modules/class-control.php:31
 msgid "Use common settings"
 msgstr "共通設定を適用"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-control.php:29
+#: dist/lightning-g3-three-column-unit/modules/class-control.php:32
+#: modules/class-control.php:32
 msgid "1 column ( No sub section )"
 msgstr "１カラム（サブセクション無し）"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-control.php:30
+#: dist/lightning-g3-three-column-unit/modules/class-control.php:33
+#: modules/class-control.php:33
 msgid "1 column"
 msgstr "１カラム"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-control.php:31
+#: dist/lightning-g3-three-column-unit/modules/class-control.php:34
+#: modules/class-control.php:34
 msgid "2 column"
 msgstr "２カラム"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-control.php:32
+#: dist/lightning-g3-three-column-unit/modules/class-control.php:35
+#: modules/class-control.php:35
 msgid "3 Column Content Left"
 msgstr "３カラム（メインセクション左）"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-control.php:33
+#: dist/lightning-g3-three-column-unit/modules/class-control.php:36
+#: modules/class-control.php:36
 msgid "3 Column Content Center"
 msgstr "３カラム（メインセクション中央）"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-control.php:34
+#: dist/lightning-g3-three-column-unit/modules/class-control.php:37
+#: modules/class-control.php:37
 msgid "3 Column Content Right"
 msgstr "３カラム（メインセクション右）"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-widget-area.php:29
-msgid "Additional Sidebar"
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:33
+#: modules/class-widget-area.php:33
+msgid "Additional Sidebar Common Upper"
+msgstr "追加サイドバー上部"
+
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:35
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:122
+#: modules/class-widget-area.php:35 modules/class-widget-area.php:122
+msgid "This widget area appears on Three Column Layout only."
+msgstr "3カラムレイアウトのみこのウィジェットエリアは表示されます。"
+
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:45
+#: modules/class-widget-area.php:45
+msgid "Additional Sidebar for Top Page"
+msgstr "トップページ用追加サイドバー"
+
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:47
+#: modules/class-widget-area.php:47
+msgid ""
+"This widget area appears on the Front Page and Three Column Layout only."
+msgstr ""
+
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:57
+#: modules/class-widget-area.php:57
+#, fuzzy
+#| msgid "Additional Sidebar"
+msgid "Additional Sidebar for Search Result"
 msgstr "追加サイドバー"
 
-#: inc/lightning-g3-three-column-unit/package/class-lightning-g3-three-column-unit-widget-area.php:31
-msgid "Display only Three Column Layout"
-msgstr "3カラムレイアウトのみ表示"
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:59
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:71
+#: modules/class-widget-area.php:59 modules/class-widget-area.php:71
+msgid ""
+"This widget area appears on the Search Result and Three Column Layout only."
+msgstr ""
+
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:69
+#: modules/class-widget-area.php:69
+#, fuzzy
+#| msgid "Additional Sidebar"
+msgid "Additional Sidebar for 404 Page"
+msgstr "追加サイドバー"
+
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:88
+#: modules/class-widget-area.php:88
+msgid "This widget area appears on the Post and Three Column Layout only."
+msgstr ""
+
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:92
+#: modules/class-widget-area.php:92
+msgid "This widget area appears on the Page and Three Column Layout only."
+msgstr ""
+
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:96
+#: modules/class-widget-area.php:96
+msgid "This widget area appears on the Media and Three Column Layout only."
+msgstr ""
+
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:100
+#: modules/class-widget-area.php:100
+#, php-format
+msgid "This widget area appears on the %s and Three Column Layout only."
+msgstr ""
+
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:107
+#: modules/class-widget-area.php:107
+#, fuzzy, php-format
+#| msgid "Additional Sidebar"
+msgid "Additional Sidebar for %s"
+msgstr "追加サイドバー"
+
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:120
+#: modules/class-widget-area.php:120
+#, fuzzy
+#| msgid "Additional Sidebar"
+msgid "Additional Sidebar Common Bottom"
+msgstr "追加サイドバー"
+
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:132
+#: modules/class-widget-area.php:132
+#, fuzzy
+#| msgid "Additional Sidebar"
+msgid "Additional Sidebar ( Deprecated )"
+msgstr "追加サイドバー"
+
+#: dist/lightning-g3-three-column-unit/modules/class-widget-area.php:134
+#: modules/class-widget-area.php:134
+msgid "This widget area appears no page."
+msgstr ""
+
+#: dist/lightning-g3-three-column-unit/vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Plugin/Ui.php:56
+#: vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Plugin/Ui.php:56
+msgid "View details"
+msgstr ""
+
+#: dist/lightning-g3-three-column-unit/vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Plugin/Ui.php:79
+#: vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Plugin/Ui.php:79
+#, php-format
+msgid "More information about %s"
+msgstr ""
+
+#: dist/lightning-g3-three-column-unit/vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Plugin/Ui.php:130
+#: vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Plugin/Ui.php:130
+msgid "Check for updates"
+msgstr ""
+
+#: dist/lightning-g3-three-column-unit/vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Plugin/Ui.php:217
+#: vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Plugin/Ui.php:217
+#, php-format
+msgctxt "the plugin title"
+msgid "The %s plugin is up to date."
+msgstr ""
+
+#: dist/lightning-g3-three-column-unit/vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Plugin/Ui.php:219
+#: vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Plugin/Ui.php:219
+#, php-format
+msgctxt "the plugin title"
+msgid "A new version of the %s plugin is available."
+msgstr ""
+
+#: dist/lightning-g3-three-column-unit/vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Plugin/Ui.php:221
+#: vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Plugin/Ui.php:221
+#, php-format
+msgctxt "the plugin title"
+msgid "Could not determine if updates are available for %s."
+msgstr ""
+
+#: dist/lightning-g3-three-column-unit/vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Plugin/Ui.php:227
+#: vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Plugin/Ui.php:227
+#, php-format
+msgid "Unknown update checker status \"%s\""
+msgstr ""
+
+#: dist/lightning-g3-three-column-unit/vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Vcs/PluginUpdateChecker.php:113
+#: vendor/yahnis-elsts/plugin-update-checker/Puc/v5p3/Vcs/PluginUpdateChecker.php:113
+msgid "There is no changelog available."
+msgstr ""
+
+#: modules/class-admin.php:269
+#, fuzzy
+#| msgid "Header Top Description Control on Narrow Window"
+msgid "Make Two Column Layout on Narrow Window"
+msgstr "ウィンドウ幅が狭いときでもヘッダー上部のキャッチコピーを表示する"
 
 #. Plugin Name of the plugin/theme
 #. Description of the plugin/theme
@@ -137,3 +329,10 @@ msgstr "DRILL LANCER"
 #. Author URI of the plugin/theme
 msgid "https://www.drill-lancer.com"
 msgstr "https://www.drill-lancer.com"
+
+#~ msgid ""
+#~ "When Three Column Layout is Choosed and Narrowing Window Size, Make Two "
+#~ "Column Layout"
+#~ msgstr ""
+#~ "3カラムレイアウトを選択時かつウィンドウ幅を狭めたときに２カラムレイアウ"
+#~ "トを生成する"

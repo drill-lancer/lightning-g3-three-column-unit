@@ -266,7 +266,7 @@ class Admin {
 		$wp_customize->add_control(
 			'lightning_g3_three_column_unit_options[three-to-one-via-two]',
 			array(
-				'label'    => __( 'Make Two Column Layout on Marrow Window', 'lightning-g3-three-column-unit' ),
+				'label'    => __( 'Make Two Column Layout on Narrow Window', 'lightning-g3-three-column-unit' ),
 				'section'  => 'lightning_g3_three_column_unit_setting',
 				'settings' => 'lightning_g3_three_column_unit_options[three-to-one-via-two]',
 				'type'     => 'select',
