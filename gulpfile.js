@@ -4,6 +4,7 @@ gulp.task("dist", function() {
 	return gulp.src(
 			[
 				"./inc/**",
+				"./modules/**",
 				"./languages/**",
 				"./vendor/**",
 				"./**/*.php",

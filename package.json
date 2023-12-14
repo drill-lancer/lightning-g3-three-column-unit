@@ -5,7 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
 	"build": "composer install --no-dev",
-    "dist": "composer install --no-dev && npx gulp dist",
+  "dist": "composer install --no-dev && npx gulp dist",
 	"phpunit": "composer install && npx wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/lightning-g3-three-column-unit/phpunit.xml --verbose'"
   },
   "repository": {
