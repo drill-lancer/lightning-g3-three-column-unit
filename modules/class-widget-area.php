@@ -44,7 +44,7 @@ class Widget_Area {
 			array(
 				'name'          => __( 'Additional Sidebar for Top Page', 'lightning-g3-three-column-unit' ),
 				'id'            => 'lightning-addtional-sidebar-top-page',
-				'description'   => __( 'This widget area appears on the Top Page and Three Column Layout only.', 'lightning-g3-three-column-unit' ),
+				'description'   => __( 'This widget area is displayed on the Top Paqe only in 3-column layout.', 'lightning-g3-three-column-unit' ),
 				'before_widget' => '<aside class="widget %2$s" id="%1$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h4 class="widget-title sub-section-title">',
@@ -56,7 +56,7 @@ class Widget_Area {
 			array(
 				'name'          => __( 'Additional Sidebar for Search Result', 'lightning-g3-three-column-unit' ),
 				'id'            => 'lightning-addtional-sidebar-search-result',
-				'description'   => __( 'This widget area appears on the Search Result and Three Column Layout only.', 'lightning-g3-three-column-unit' ),
+				'description'   => __( 'This widget area is displayed on the Search Result only in 3-column layout.', 'lightning-g3-three-column-unit' ),
 				'before_widget' => '<aside class="widget %2$s" id="%1$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h4 class="widget-title sub-section-title">',
@@ -68,7 +68,7 @@ class Widget_Area {
 			array(
 				'name'          => __( 'Additional Sidebar for 404 Page', 'lightning-g3-three-column-unit' ),
 				'id'            => 'lightning-addtional-sidebar-404-page',
-				'description'   => __( 'This widget area appears on the Search Result and Three Column Layout only.', 'lightning-g3-three-column-unit' ),
+				'description'   => __( 'This widget area is displayed on the 404 Page only in 3-column layout.', 'lightning-g3-three-column-unit' ),
 				'before_widget' => '<aside class="widget %2$s" id="%1$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h4 class="widget-title sub-section-title">',
@@ -85,19 +85,19 @@ class Widget_Area {
 			$sidebar_description = '';
 			if ( 'post' === $post_type ) {
 
-				$sidebar_description = __( 'This widget area appears on the Post and Three Column Layout only.', 'lightning-g3-three-column-unit' );
+				$sidebar_description = __( 'This widget area is displayed on the Post only in 3-column layout.', 'lightning-g3-three-column-unit' );
 
 			} elseif ( 'page' === $post_type ) {
 
-				$sidebar_description = __( 'This widget area appears on the Page and Three Column Layout only.', 'lightning-g3-three-column-unit' );
+				$sidebar_description = __( 'This widget area is displayed on the Page only in 3-column layout.', 'lightning-g3-three-column-unit' );
 
 			} elseif ( 'attachment' === $post_type ) {
 
-				$sidebar_description = __( 'This widget area appears on the Media and Three Column Layout only.', 'lightning-g3-three-column-unit' );
+				$sidebar_description = __( 'This widget area is displayed on the attachment only in 3-column layout.', 'lightning-g3-three-column-unit' );
 
 			} else {
 
-				$sidebar_description = sprintf( __( 'This widget area appears on the %s and Three Column Layout only.', 'lightning-g3-three-column-unit' ), $post_type_name );
+				$sidebar_description = sprintf( __( 'This widget area is displayed on the %s only in 3-column layout.', 'lightning-g3-three-column-unit' ), $post_type_name );
 
 			}
 
