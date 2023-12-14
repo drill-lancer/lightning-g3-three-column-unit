@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Lightning G3 Three Column Unit\n"
-"POT-Creation-Date: 2023-12-14 10:59+0900\n"
-"PO-Revision-Date: 2023-12-14 11:08+0900\n"
+"POT-Creation-Date: 2023-12-14 11:12+0900\n"
+"PO-Revision-Date: 2023-12-14 11:14+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -145,7 +145,7 @@ msgstr "3カラムレイアウトのみこのウィジェットエリアは表�
 
 #: modules/class-widget-area.php:45
 msgid "Additional Sidebar for Top Page"
-msgstr "トップページ用追加サイドバー"
+msgstr "追加サイドバー ( トップページ )"
 
 #: modules/class-widget-area.php:47
 msgid "This widget area is displayed on the Top Paqe only in 3-column layout."
@@ -155,7 +155,7 @@ msgstr ""
 
 #: modules/class-widget-area.php:57
 msgid "Additional Sidebar for Search Result"
-msgstr "追加サイドバー"
+msgstr "追加サイドバー ( 検索結果 )"
 
 #: modules/class-widget-area.php:59
 msgid ""
