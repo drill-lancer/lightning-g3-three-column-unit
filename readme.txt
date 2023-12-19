@@ -25,7 +25,7 @@ This is a plugin that provides three column layout on Lightning Generation 3.
 
 = 1.1.0 =
 - Add post type sidebar to addtional sidebar.
-- Fix 3column Layout when display 2 column layout.
+- Fix 3column Layout mode when display 2 column layout.
 
 = 1.0.0 =
 - First release.
