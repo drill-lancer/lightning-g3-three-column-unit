@@ -129,7 +129,7 @@ class Widget_Area {
 
 		register_sidebar(
 			array(
-				'name'          => __( 'Additional Sidebar ( Deprecated )', 'lightning-g3-three-column-unit' ),
+				'name'          => __( 'Additional Sidebar', 'lightning-g3-three-column-unit' ),
 				'id'            => 'lightning-addtional-sidebar',
 				'description'   => __( 'This widget area appears no page.', 'lightning-g3-three-column-unit' ),
 				'before_widget' => '<aside class="widget %2$s" id="%1$s">',
@@ -182,7 +182,9 @@ class Widget_Area {
 						dynamic_sidebar( 'lightning-addtional-sidebar-' . $post_type );
 					} elseif ( is_404() && is_active_sidebar( 'lightning-addtional-sidebar-404-page' ) ) {
 						dynamic_sidebar( 'lightning-addtional-sidebar-404-page' );
-					} 
+					} elseif ( is_active_sidebar( 'lightning-addtional-sidebar' ) ) {
+						dynamic_sidebar( 'lightning-addtional-sidebar' );
+					}
 					
 					// サイドバー下部
 					if ( is_active_sidebar( 'lightning-addtional-sidebar-common-bottom' ) ) {
